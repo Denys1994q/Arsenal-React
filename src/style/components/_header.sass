@@ -1,0 +1,117 @@
+.header-container
+    background-color: #f00000
+    margin-bottom: 5rem
+    position: relative
+    z-index: 4
+.header__logo
+    width: 110px
+    position: absolute
+    top: 2rem
+    z-index: 20
+.header__wrapper
+    display: flex
+    justify-content: space-between
+    &_top
+        display: flex
+        justify-content: end
+        padding-right: 2rem
+        border-bottom: .1px solid #ffffffb3
+        padding-top: 1.2rem
+        &-list
+            font-size: 1.2rem
+            display: flex
+            list-style: none
+            margin-top: .5rem
+            color: white
+            font-weight: 600
+            text-transform: uppercase
+            li:not(:last-child)
+                margin-right: 2rem
+    &_img
+        width: 5%
+        padding-left: 1rem
+    &_list
+        padding-left: 3rem
+        width: 70%
+    &_brends
+        width: 20%
+        padding-right: 2rem
+        display: flex
+        justify-content: end
+        align-items: center
+        div img
+            width: 7rem
+.header__box_list
+    list-style: none
+    display: flex
+    align-items: center
+    height: 100%
+    justify-content: space-around
+    padding: 1rem
+    color: white
+    & li
+        font-size: 1.8rem
+        text-transform: uppercase
+        cursor: pointer
+        transition: .1s ease-in-out
+        &:hover:not(:nth-child(1))
+            transform: scale(1.1)
+        a:hover
+            text-decoration: none
+.header-squad
+    background: white
+    color: #f00000
+    height: auto
+    padding: 10px 40px 0px 40px
+    position: relative
+    z-index: 900
+    transition: 1s all ease-in-out
+    border-bottom: none
+    &-fake
+        display: none
+        position: absolute
+        top: -15px
+        left: 0
+        background: white
+        width: 148px
+        height: 20px
+    &-bef
+        position: absolute
+        top: 100%
+        left: 0
+        right: 0
+        padding-bottom: 9%
+        background: white
+        clip-path: polygon(0% 0%, 100% 0%, 50% 100%, 0% 0%)
+        &-active 
+            clip-path: none
+            padding-bottom: 10%
+            // transition: .1s all ease
+
+// tab
+.header-tab
+    display: none
+    position: absolute
+    width: 100%
+    justify-content: space-between
+    background: white
+    z-index: 10
+    padding: 1rem
+    padding-top: 2rem
+    border-bottom: 5px solid red
+    &-item
+        margin-left: 7%
+        text-align: left
+        padding-right: 2rem
+        border-right: 1px solid #af1311
+        width: 25%
+        li:hover
+            color: red
+            font-weight: bold
+        & span
+            color: #e73330
+            font-weight: bold
+            margin-right: 1rem
+        p
+            font-weight: bold
+            margin-bottom: 3rem
