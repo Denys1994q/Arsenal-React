@@ -53,6 +53,8 @@ const BasketList = (props) => {
     })
 
     const showThanksBlock = () => {
+        setOrder([])
+        setAmount(0)
         setShowMessageThanks(true)
     }
 
@@ -62,12 +64,12 @@ const BasketList = (props) => {
             <>
             <p className="basketList-empty-title">YOUR BASKET IS CURRENTLY EMPTY</p> 
             <div className="basketList-empty-img"><img src={emptyCart} alt="" /></div>
+            <div style={{'display': showMessageThanks && openBasket ? 'block' : 'none'}} className="basketList-item-messageThanks">Thanks, your order was accepted</div>
             </> :
             <>
             {showOrder}
             <p className="basketList-item-total">Total: £{total}.00</p>
             <button onClick={() => showThanksBlock()} className='btn buy-btn'>Buy</button>
-            <div style={{'display': showMessageThanks ? 'block' : 'none'}} className="basketList-item-messageThanks">Thanks, your order was accepted</div>
             </> }
         </ul>
     )

@@ -1,4 +1,4 @@
-// стилі
+// стилі і картинки
 import "../../style/style.sass";
 import ramsdale from '../../imgs/ramsdale.jpg';
 import turner from '../../imgs/turner.jpg';
@@ -23,22 +23,19 @@ import lokonga from '../../imgs/lokonga.jpg';
 import martinelly from '../../imgs/martinelly.jpg';
 import nketiah from '../../imgs/nketiah.jpg';
 import jesus from '../../imgs/jesus.jpg';
-
 // хуки
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import {useLocation} from "react-router-dom";
 import { useState, useEffect } from "react";
 // компоненти
 import Header from "../header/Header";
-import Main from "../slider/Main";
-import Modal from "../modal/Modal";
+import Main from "../main/Main";
 import Team from "../team/Team";
 import Cinema from "../cinema/Cinema";
 import Shop from "../shop/Shop";
 import Player from "../header/Player";
+import Contact from "../contact/Contact";
 
 function App() {
-
   const [players, setPlayers] = useState([
     {goalkeepers: [
       {name: 'Aaron Ramsdale', squadNumber: 1, img: ramsdale, born: 'May 14, 1998/Stoke-on-Trent', arsenalDebut: 'v West Bromwich Albion (a) League Cup, August 25, 2021 (won 6-0)', previousClubs: 'Bournemouth, Chesterfield (loan), AFC Wimbledon (loan), Sheffield United'},
@@ -73,12 +70,6 @@ function App() {
     ]}
   ])
 
-  // let location = useLocation()
-  
-  // useEffect(() => {
-  //   console.log(location)
-  // }, [])
-
   return (
     <div className='container'>
       <Router>
@@ -89,7 +80,7 @@ function App() {
           <Route path='/team/:id' element={<Player players={players} />} />
           <Route path='/cinema' element={<Cinema />} />
           <Route path='/shop' element={<Shop />} />
-          {/* <Modal /> */}
+          <Route path='/contact' element={<Contact />} />
         </Routes>
       </Router>
     </div>

@@ -8,13 +8,13 @@ import arsenal_logo from "../../imgs/logo.svg";
 import weather_rain from "../../imgs/weather-wet.png";
 import weather_sunny from "../../imgs/weather-sunny.png";
 import weather_cloud from "../../imgs/weather-cloud.png";
-
+// хуки
 import { useEffect, useState } from "react";
+// компоненти
+import Modal from "../modal/Modal";
 
 const Main = (props) => {
-
   const {players} = props;
-
   const [slide, setSlide] = useState(0);
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -25,14 +25,14 @@ const Main = (props) => {
   const [weatherImg, setWeatherImg] = useState(null);
   const imgsArr = [slider1, slider2, slider3, slider4, slider5];
 
-  const w = () => {
+  const slidesAutoStart = () => {
     setSlide((old) => old + 1);
   };
   // якщо клікнув сам користувач, то таймер перестає йти
   useEffect(() => {
     const timer = setInterval(() => {
-      // w()
-    }, 3000);
+      // slidesAutoStart()
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -74,7 +74,7 @@ const Main = (props) => {
   useEffect(() => {
     getWeatherFromAPI();
     const timer = setInterval(() => {
-      time("2022-08-13T15:00:00");
+      time("2022-10-13T15:00:00");
     }, 1000);
     return () => clearInterval(timer);
   }, []);
@@ -103,11 +103,11 @@ const Main = (props) => {
   const getWeatherImg = () => {
     switch (typeOfWeather) {
       case "Rain":
-        setWeatherImg(weather_rain);
+        return setWeatherImg(weather_rain);
       case "Clouds":
-        setWeatherImg(weather_sunny);
+        return setWeatherImg(weather_cloud);
       case "Clear":
-        setWeatherImg(weather_cloud);
+        return setWeatherImg(weather_sunny);
     }
   };
 
@@ -127,7 +127,7 @@ const Main = (props) => {
       <div className='card'>
         <div className='card-wrapper'>
           <div className='card-dateAndStadium'>
-            <div className='card-date'>Sat 13 Aug - 15:00</div>
+            <div className='card-date'>Sat 23 Oct - 15:00</div>
             <div className='card-stadium'>Emirates Stadium</div>
           </div>
           <div className='card-league'>Premier League</div>
@@ -171,6 +171,7 @@ const Main = (props) => {
           </div>
         </div>
       </div>
+      <Modal />
     </div>
   );
 };

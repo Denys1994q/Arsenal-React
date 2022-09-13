@@ -3,7 +3,7 @@ import adidas from "../../imgs/adidas.png";
 import emirates from "../../imgs/emirates.png";
 import visitRwanda from "../../imgs/visit-rwanda.png";
 // хуки
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -61,12 +61,11 @@ const Header = (props) => {
       <header className='header'>
         <div className='header__wrapper_top'>
           <ul className='header__wrapper_top-list'>
-            <li><a href="">Arsenal women</a></li>
-            <li><a href="">Hospitality</a></li>
-            <li><a href="">Stadium tours</a></li>
-            <li><a href="">Arsenal direct</a></li>
-            <li><a href="">Junior gunners</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="https://www.facebook.com/denis.rybachok" target="_blank">Facebook</a></li>
+            <li><a href="https://github.com/Denys1994q" target="_blank">GitHub</a></li>
+            <li><a href="https://t.me/drybachok" target="_blank">Telegram</a></li>
+            <li><a href="#" target="_blank">0975300083</a></li>
+            <li><a href="#" target="_blank">drybachok@gmail.com</a></li>
           </ul>
         </div>
         <div className='header__wrapper'>
@@ -82,10 +81,10 @@ const Header = (props) => {
                   <div className={showTab ? "header-squad-bef header-squad-bef-active" : "header-squad-bef"}></div>
                   <div style={{'display': showTab ? 'block' : 'none'}} className='header-squad-fake'></div>
                 </li>
-              <li><Link to="/team">Create team</Link></li>
-              <li><Link to="/cinema">Cinema</Link></li>
-              <li><Link to="/shop">Shop</Link></li>
-              <li><Link to="/shop">Form</Link></li>
+              <li><NavLink to="/team">Create team</NavLink></li>
+              <li><NavLink to="/cinema">Cinema</NavLink></li>
+              <li><NavLink to="/shop">Shop</NavLink></li>
+              <li><NavLink to="/contact">Contact us</NavLink></li>
             </ul>
           </div>
             {showBasketContent}
