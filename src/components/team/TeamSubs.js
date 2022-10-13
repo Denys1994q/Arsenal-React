@@ -188,7 +188,7 @@ const TeamSubs = (props) => {
       heroToSub = heroToSub1.img;
       iconClass =
         heroToSub1.img !== null && searchedPlayers[0].name !== ""
-          ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-2x"
+          ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-4x white-color-back"
           : "team-bottom-subs-imgsBox-middle fas fa-directions fa-2x";
 
       showBtn =
@@ -204,7 +204,7 @@ const TeamSubs = (props) => {
       heroToSub = heroToSub2.img;
       iconClass =
         heroToSub2.img !== null && searchedPlayers[1].name !== ""
-          ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-2x"
+          ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-4x white-color-back"
           : "team-bottom-subs-imgsBox-middle fas fa-directions fa-2x";
 
       showBtn =
@@ -220,7 +220,7 @@ const TeamSubs = (props) => {
       heroToSub = heroToSub3.img;
       iconClass =
         heroToSub3.img !== null && searchedPlayers[2].name !== ""
-          ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-2x"
+          ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-4x white-color-back"
           : "team-bottom-subs-imgsBox-middle fas fa-directions fa-2x";
 
       showBtn =
@@ -248,7 +248,7 @@ const TeamSubs = (props) => {
                 style={{
                   marginBottom: "10px",
                   width: "15rem",
-                  background: "#af1311",
+                  background: "#D89216",
                   border: "none",
                   color: "#fff",
                 }}

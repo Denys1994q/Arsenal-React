@@ -21,6 +21,7 @@ import Basket from './Basket';
 import ShopDesc from './ShopDesc';
 // хуки
 import { useEffect } from 'react';
+import ReactImageMagnify from 'react-image-magnify';
 
 const Shop = () => {
     const [name, setName] = useState('name');
@@ -35,6 +36,8 @@ const Shop = () => {
     const [amount, setAmount] = useState(0);
     // повідомлення про доданий товар
     const [showMessage, setShowMessage] = useState(false);
+    // приховати інпути при зумі зображення 
+    const [hideInputs, setHideInputs] = useState(false);
 
     const [shirts, setShirts] = useState([
         {color: 'red', name: 'Arsenal 22/23 Home Shirt', img: redShirt, smallImgs: [redShirt, redShirtSmall1, redShirtSmall2], sizes: ['xs', 's', 'm', 'l', 'xl', '2xl'], chosenSize: 'xs', price: 100}, 
@@ -79,11 +82,11 @@ const Shop = () => {
             setNumber(e.target.value)
         }    
     }
-
-    const showInputs = activeSmall === 0 ? 
+    
+    const showInputs = activeSmall === 0 && !hideInputs ? 
     <>
-        <p style={{'color': active === 1 || active === 3 ? '#464058' : 'white'}} className='shop-shirt-title'>{name}</p>
-        <p style={{'color': active === 1 || active === 3 ? '#464058' : 'white'}} className='shop-shirt-number'>{number}</p> 
+        <p onMouseEnter={() => setHideInputs(true)}  style={{'color': active === 1 || active === 3 ? '#464058' : 'white', 'display': hideInputs ? 'none' : 'block'}} className='shop-shirt-title'>{name}</p>
+        <p onMouseEnter={() => setHideInputs(true)} style={{'color': active === 1 || active === 3 ? '#464058' : 'white', 'display': hideInputs ? 'none' : 'block'}} className='shop-shirt-number'>{number}</p> 
         <input type="text" value={name} onChange={(e) => changeName(e)} placeholder='name' className='shop-shirt-inpText shop-shirt-inpText-1 browser-default' />
         <input type="number" value={number}  onChange={(e) => changeNumber(e)} placeholder='number' className='shop-shirt-inpText shop-shirt-inpText-2 browser-default' />
     </>                     
@@ -138,7 +141,20 @@ const Shop = () => {
                     </div>
                 </div>
                 <div className='shop-shirt-right'>
-                    <div className='shop-shirt-right-img'><img src={shirts[active].smallImgs[activeSmall]} alt="" /></div>
+                    <div className='shop-shirt-right-img' onMouseLeave={() => setHideInputs(false)}>
+                        <ReactImageMagnify {...{
+                        smallImage: {
+                            alt: 'Wristwatch by Ted Baker London',
+                            isFluidWidth: true,
+                            src: shirts[active].smallImgs[activeSmall],
+                        },
+                        largeImage: {
+                            src: shirts[active].smallImgs[activeSmall],
+                            width: 1200,
+                            height: 1800
+                        }
+                    }} />
+                    </div>
                         {showInputs}
                     <div className='btns'>
                         <div className='btn-prev'><i style={{'opacity': disableBtn ? '.2' : '1'}} onClick={changeActiveShirtPrev} className='fa fa-chevron-left fa-3x'></i></div>

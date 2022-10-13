@@ -1,3 +1,5 @@
+import imageNotFound from '../../imgs/notFound.png'
+
 const Movie = (props) => {
   const { movies } = props;
 
@@ -5,7 +7,7 @@ const Movie = (props) => {
     return (
         <li key={item.imdbID}>
             <div className="movies-list-item">
-                <div className="movies-list-item-img"><img src={item.Poster} alt="" /></div>
+                <div className="movies-list-item-img"><img src={item.Poster !== 'N/A' ? item.Poster : imageNotFound} alt="" /></div>
                 <div>{item.Title}</div>
                 <div>{item.Year}</div>
             </div>
