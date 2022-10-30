@@ -95,7 +95,6 @@ const ContactForm = () => {
 
     return (
         <>
-            <p>Please fill the form below to contact Arsenal Retail by Email:</p>
             <form action="" className="contactForm">
                 <div className="contactForm-left">
                     <div className="contactForm-input">

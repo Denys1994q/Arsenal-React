@@ -1,52 +1,22 @@
-// картинки 
-import hulk from "../../imgs/team-card-hulk.jpg";
-// клмпоненти
-import Header from "../header/Header";
-import Search from "./Search";
-import Movies from "./Movies";
-import { useState } from "react";
+import Search from "./cinema_Search/Search";
+import Movies from "./cinema_MoviesList/Movies";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchMovies } from "./cinemaSlice";
 
-// сюди відео вставити на сторінку 
 const Cinema = () => {
+    const dispatch = useDispatch();
 
-const [movies, setMovies] = useState([]);
-const [loading, setLoading] = useState(false);
-const [movieNotFound, setMovieNotFound] = useState(false);
+    useEffect(() => {
+        dispatch(fetchMovies("arsenal"));
+    }, []);
 
-const getMovies = (str = 'arsenal') => {
-    setLoading(true)
-    fetch(`https://www.omdbapi.com/?apikey=e8ceae38&s=${str}`)
-    .then(response => response.json())
-    .then(data => takeMovies(data))
-    .catch((err) => {
-        console.error(err);
-        setLoading(false)
-    })
-}
-
-const takeMovies = (data) => {
-  if (data.Response === 'False') {
-    setMovieNotFound(true) 
-    setLoading(false)
-  }
-  else {
-    setMovies(data.Search)
-    setMovieNotFound(false)
-    setLoading(false)
-  }
-}
-
-useEffect(() => {
-    getMovies();
-}, [])
-
-  return (
-      <div className='cinema'>
-        <Search getMovies={getMovies} loading={loading} movieNotFound={movieNotFound} />
-        <Movies movies={movies} />
-      </div>
-  );
+    return (
+        <div className='cinema'>
+            <Search />
+            <Movies />
+        </div>
+    );
 };
 
 export default Cinema;

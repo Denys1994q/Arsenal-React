@@ -1,7 +1,7 @@
-import my_photo from '../../imgs/me.jpg'
-import git_logo from '../../imgs/git_logo.svg'
-import fb_logo from '../../imgs/fb_logo.png'
-import tg_logo from '../../imgs/tg_logo.png'
+import my_photo from '../../../imgs/me.jpg'
+import git_logo from '../../../imgs/git_logo.svg'
+import fb_logo from '../../../imgs/fb_logo.png'
+import tg_logo from '../../../imgs/tg_logo.png'
 
 import { useState, useEffect } from 'react'
 

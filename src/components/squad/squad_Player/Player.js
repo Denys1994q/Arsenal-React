@@ -1,4 +1,3 @@
-import zinchenko from '../../imgs/zinchenko.png'
 // хуки
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -13,7 +12,6 @@ const Player = (props) => {
 
     const findPlayer = () => {
         const w = allPlayers.length > 0 ? allPlayers.filter(it => it.squadNumber === +id) : null
-        console.log(w)
         setSelectedPlayer(w)
     }
 
