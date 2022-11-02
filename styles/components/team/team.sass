@@ -1,0 +1,281 @@
+// хороший сайт з картинками https://kartinkin.net/37981-futbolnoe-pole-tekstura.html
+
+    // filter: drop-shadow(2px 4px 10px rgba(0,0,0,.16))
+    // transition-duration: .3s;
+    // transition-property: filter,transform;
+    // transition-timing-function: cubic-bezier(.39,.575,.565,1);
+    // https://www.cardstar.me/cards/football
+    // team-card3
+
+.team
+    display: flex
+    flex-wrap: wrap
+    background: url('../../../src/imgs/backArs2.jpg')
+    background-size: contain
+    padding: 2rem
+    margin-top: -4rem
+    margin-bottom: .5rem
+    &-btn
+        margin-right: 1rem
+        margin-bottom: 0.5rem
+        margin-top: .5rem
+    &-left
+        color: white
+        font-size: 1.6rem
+        width: 28%
+        height: 400px
+        ol
+            padding: 1rem
+            margin-bottom: 2rem
+        &-img
+            width: 15rem
+            margin-left: auto
+            img
+                width: 100%
+        &-text
+            height: 45rem
+            margin-top: 2rem
+            padding-left: 1rem
+            font-size: 1.3rem
+            background-size: cover
+            filter: drop-shadow(2px 4px 10px rgba(0,0,0,.16))
+        &-squad
+            ul
+                list-style: none
+            li
+                padding: .2rem
+                margin-bottom: .3rem
+                font-size: 1.3rem
+                cursor: pointer
+                span
+                    display: inline-block
+                    background: black
+                    color: white
+                    text-transform: uppercase
+            li:hover
+                background: white
+                color: black
+                transition: .1s ease-in-out
+                span
+                    background: red
+                    color: white
+    &-right
+        width: 70%
+    &-container
+        background: url('../../../src/imgs/team-bg.jpg') no-repeat
+        background-size: contain
+        background-position: 0% -25px
+        margin-left: auto
+        display: grid
+        grid-template-columns: repeat(8, 1fr)
+        grid-template-rows: repeat(9, 50px)
+        grid-column-gap: 10px
+        grid-row-gap: 10px
+        padding: 2rem
+    .item
+        padding: .2rem
+        font-size: 30px
+        border-radius: 100%
+        &-1
+            grid-row: 4 / 5
+            grid-column: 1 / 2
+        &-2
+            grid-row: 1 / 2
+            grid-column: 3 / 4
+        &-3
+            grid-row: 3 / 4
+            grid-column: 3 / 4
+        &-4
+            grid-row: 5 / 6
+            grid-column: 3 / 4
+        &-5
+            grid-row: 7 / 8
+            grid-column: 3 / 4
+        &-6
+            grid-row: 2 / 3
+            grid-column: 5 / 6
+        &-7
+            grid-row: 4 / 5
+            grid-column: 5 / 6
+        &-8
+            grid-row: 6 / 7
+            grid-column: 5 / 6
+        &-9
+            grid-row: 2 / 3
+            grid-column: 7 / 8
+        &-10
+            grid-row: 4 / 5
+            grid-column: 8 / 9
+        &-11
+            grid-row: 6 / 7
+            grid-column: 7 / 8
+    &-bottom
+        position: relative
+        z-index: 5
+        background-color: #fff
+
+.cap
+    width: 40px
+    height: 40px
+    display: inline-block
+    img
+        width: 100%
+        height: 100%
+.card-football
+    height: 11rem
+    width: 11rem
+    perspective: 150rem
+    -moz-perspective: 150rem
+    position: relative
+    &__side
+        height: 11rem
+        transition: .7s all ease-out
+        color: white
+        width: 100%
+        backface-visibility: hidden
+        position: absolute
+        top: 0
+        left: 0
+        overflow: hidden
+        background: white
+        border-radius: 50%
+        filter: drop-shadow(2px 4px 10px rgba(0,0,0,.16))
+        div
+            height: 100%
+            img
+                width: 100%
+                height: 100%
+        &_front
+            // background: 
+        &_back
+            transform: rotateY(180deg)
+    &:hover &__side_front
+        transform: rotateY(-180deg)
+    &:hover &__side_back
+        transform: rotateY(0deg)
+.active-card
+    transform: scale(1.2)
+.active-img
+    border: 3px solid white
+    border-radius: 50%
+.red-color
+    color: red
+.dark-red-color
+    color: #af1311
+.black-color
+    color: black
+.white-color
+    color: white
+.white-color-back
+    color: white
+    background: #222030
+.fa-star
+    margin-right: 1rem
+
+.team-bottom
+    display: flex
+    column-gap: 2rem
+    background: none
+    width: 100%
+    &-subs
+        width: 75%
+        display: flex
+        justify-content: center
+        column-gap: 1rem
+        height: 25rem
+        margin-bottom: 3rem
+        font-size: 1.4rem
+        &-inp
+            background: #222030
+            height: 3rem
+            color: #fff
+            border: none
+            padding-left: 4rem
+            padding-right: 1rem
+            margin-bottom: 1rem
+            width: 100%
+        &-inp:focus
+            background: #af1311
+            border: none
+            outline: none
+        &-icon
+            position: absolute
+            top: .6rem
+            left: .7rem
+            z-index: 10
+            cursor: pointer
+        &-imgsBox
+            display: flex
+            justify-content: space-between
+            margin-bottom: 1rem
+            padding-left: .4rem
+            padding-right: .4rem
+            &-title
+                background: #ddd
+                margin-left: 5rem
+                padding: .3rem
+                display: inline-block
+                font-size: 1.4rem
+                text-align: center
+                text-transform: uppercase
+                margin-bottom: 1rem
+        &-imgsBox-in
+            width: 40%
+        &-imgsBox-out
+            width: 40%
+        &-imgsBox-middle
+            height: 0
+            margin-top: 40%
+            display: flex
+            justify-content: center
+            align-items: center
+            cursor: pointer
+        &-img
+            width: 10rem
+            height: 10rem
+            img
+                width: 100%
+                border-radius: 100%
+        &-1
+            width: 33%
+            position: relative
+            border: 1px solid white
+            // background: url('../../../src/imgs/card1.webp')
+            background: url('../../../src/imgs/card.png')
+            background-size: cover
+        &-2
+            width: 33%
+            position: relative
+            border: 1px solid white
+            // background: url('../../../src/imgs/card.webp')
+            background: url('../../../src/imgs/card.png')
+            background-size: cover
+        &-3
+            width: 33%
+            position: relative
+            border: 1px solid white
+            // background: url('../../../src/imgs/card2.webp')
+            // background: #616164
+            background: url('../../../src/imgs/card.png')
+            background-size: cover
+.char__info
+    width: 30%
+    position: relative
+    z-index: 5
+    &-box
+        display: flex
+        column-gap: 2rem
+    &-img
+        width: 200px
+        height: 200px
+        img
+            width: 100%
+    &-text
+        width: 60%
+        font-size: 1.2rem
+        color: white
+        &-title
+            font-size: 1.6rem
+            font-weight: bold
+        div
+            margin-bottom: 1rem

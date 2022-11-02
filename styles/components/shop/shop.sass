@@ -1,0 +1,151 @@
+.shop
+    display: flex
+    margin-bottom: 22rem
+    &-shirt
+        width: 35%
+        margin-left: 20rem
+        position: relative
+        &-left
+            position: absolute
+            top: 0
+            left: -30%
+            &-title
+                z-index: 3
+                margin-bottom: 2rem
+                font-size: 3.7rem
+                font-weight: 600
+                position: relative
+            &-item
+                width: 10rem
+                height: 10rem
+                margin-bottom: 5rem
+                img
+                    width: 100%
+                    transition: .2s all ease-in-out
+                img:hover
+                    transform: scale(1.1)
+        &-right
+            position: relative
+            width: 550px
+            z-index: 2
+            &-img
+                position: absolute
+                top: -10px
+                z-index: -2
+                left: 0
+                width: 450px
+                height: 605px
+                img
+                    width: 100%
+                    height: 100%
+        &-title
+            text-transform: uppercase
+            text-align: center
+            width: 15rem
+            position: absolute
+            top: 13rem
+            left: 15rem
+            font-size: 2.4rem
+            font-weight: bold
+        &-number
+            text-align: center
+            width: 15rem
+            position: absolute
+            top: 15rem
+            left: 15rem
+            font-size: 13rem
+            font-weight: bold
+        &-inpText
+            height: 4.5rem
+            margin: 0px 10px
+            height: 45px
+            padding-left: 5px
+            border: 1px solid #505050
+            width: 20rem
+            color: #505050
+            background: -webkit-linear-gradient(top, rgba(255,255,255,0.66) 0%, rgba(255,255,255,0.82) 47%, #ffffff 100%)
+            font-size: 1.6rem
+            text-transform: uppercase
+            &-1
+                position: absolute
+                top: 42rem
+                left: 0
+            &-2
+                position: absolute
+                top: 42rem
+                left: 23rem
+        &-sizes
+            margin-left: 2rem
+            margin-top: 8rem
+            &-list
+                &-item
+                    width: 5.5rem
+                    height: 5.5rem
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    background: #eaeaea
+                    margin-bottom: 1rem
+                    font-weight: bold
+                    text-transform: uppercase
+                    cursor: pointer
+                    transition: all .2s ease
+                    &-active
+                        background: #F90401
+                        color: white
+                &-item:hover
+                    background: #474444
+                    color: white
+        &-price
+            margin-left: 2rem
+            // background: url('../../imgs/shop.jpg')
+            // background-size: contain
+            &-item
+                text-align: center
+                font-size: 3rem
+                color: #505050
+            &-btn
+                border: none
+                outline: none
+                width: 20rem
+                margin-left: 50%
+                transform: translate(-50%, 0)
+// activeImg
+.activeImg
+    border: 2px solid rgb(236, 236, 236)
+// btns
+.btn-prev
+    cursor: pointer
+    position: absolute
+    top: 20rem
+    transform: translate(0, -50%)
+    left: 0
+    color: red
+.btn-next
+    cursor: pointer
+    position: absolute
+    top: 20rem
+    transform: translate(0, -50%)
+    left: 40rem
+    color: red
+// ShopDesc
+.shop-description
+    display: flex
+    justify-content: end
+    &-item
+        margin-right: 1rem
+        font-size: 1.4rem
+        color: #A9A9A9
+        text-transform: uppercase
+        border-bottom: 1px solid #E8E8E8
+        background-color: transparent
+        cursor: pointer
+        &-active
+            color: black
+    &-body
+        font-size: 1.4rem
+        width: 53rem
+        overflow: auto
+        max-height: 20rem
+        overflow-y: auto
+        margin-bottom: 3rem

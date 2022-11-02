@@ -1,0 +1,38 @@
+export const shirts = [
+    {
+        color: "red",
+        name: "Arsenal 22/23 Home Shirt",
+        img: "../../public/imgs/shirt.webp",
+        smallImgs: ["/imgs/shirt.webp", "/imgs/red-shirt-small1.jpg", "/imgs/red-shirt-small2.jpg"],
+        sizes: ["xs", "s", "m", "l", "xl", "2xl"],
+        chosenSize: "xs",
+        price: 100,
+    },
+    {
+        color: "yellow",
+        name: "Arsenal 22/23 Second Shirt",
+        img: "../../public/imgs/shirt-yellow.png",
+        smallImgs: ["/imgs/shirt-yellow.png", "/imgs/yellow-shirt-small1.jpg", "/imgs/yellow-shirt-small2.jpg"],
+        sizes: ["xs", "s", "m", "l", "xl"],
+        chosenSize: "xs",
+        price: 90,
+    },
+    {
+        color: "black",
+        name: "Arsenal 22/23 Away Shirt",
+        img: "../../public/imgs/shirt-black.webp",
+        smallImgs: ["/imgs/shirt-black.webp", "/imgs/black-shirt-small1.jpg", "/imgs/black-shirt-small2.jpg"],
+        sizes: ["s", "m", "l", "xl", "2xl"],
+        chosenSize: "xs",
+        price: 110,
+    },
+    {
+        color: "pink",
+        name: "Arsenal 22/23 Third Shirt",
+        img: "../../public/imgs/shirt-pink.webp",
+        smallImgs: ["/imgs/shirt-pink.webp", "/imgs/pink-shirt-small1.jpg", "/imgs/pink-shirt-small2.jpg"],
+        sizes: ["xs", "m", "l", "xl", "2xl"],
+        chosenSize: "xs",
+        price: 120,
+    },
+];
