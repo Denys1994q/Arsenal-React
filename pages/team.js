@@ -1,5 +1,4 @@
-
-import team_header from '../src/imgs/team-header.jpg'
+import team_header from "../public/imgs/team-header.jpg";
 
 import { useSelector } from "react-redux";
 

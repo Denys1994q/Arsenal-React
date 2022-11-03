@@ -1,4 +1,4 @@
-import emptyCard from "../../src/imgs/team-card-hulk.jpg";
+import emptyCard from "../../public/imgs/team-card-hulk.jpg";
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { useHttp } from "../../hooks/http.hook";

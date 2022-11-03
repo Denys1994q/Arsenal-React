@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import logo from "../../src/imgs/logo.svg";
-import adidas from "../../src/imgs/adidas.png";
-import emirates from "../../src/imgs/emirates.png";
-import visitRwanda from "../../src/imgs/visit-rwanda.png";
+import logo from "../../public/imgs/logo.svg";
+import adidas from "../../public/imgs/adidas.png";
+import emirates from "../../public/imgs/emirates.png";
+import visitRwanda from "../../public/imgs/visit-rwanda.png";
 
 import { useState, useEffect } from "react";
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies } from "../cinemaSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +6,10 @@ import { faSearch, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const Search = () => {
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchMovies("arsenal"));
+    }, []);
 
     const movies = useSelector(state => state.cinemaSlice.movies);
     const loading = useSelector(state => state.cinemaSlice.moviesLoading);
@@ -22,7 +26,7 @@ const Search = () => {
         <div className='movies-search-inpWrapper'>
             <video className='video' autoPlay muted loop>
                 <source
-                    src={require("../../../src/imgs/Frustrated fans watching a football game.mp4")}
+                    src={require("../../../public/imgs/Frustrated fans watching a football game.mp4")}
                     type='video/mp4'
                 />
             </video>
@@ -36,7 +40,7 @@ const Search = () => {
                 />
                 <FontAwesomeIcon
                     icon={loading ? faSpinner : faSearch}
-                    className={loading ? 'fa fa-spinner fa-spin movies-search-logo' : 'movies-search-logo'}
+                    className={loading ? "fa fa-spinner fa-spin movies-search-logo" : "movies-search-logo"}
                     onClick={() => dispatch(fetchMovies(searchValue))}
                     style={{ color: "white" }}></FontAwesomeIcon>
             </div>

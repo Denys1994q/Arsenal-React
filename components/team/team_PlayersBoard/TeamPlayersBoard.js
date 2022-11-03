@@ -1,5 +1,5 @@
 // картинки
-import emptyCard from "../../../src/imgs/team-card-hulk.jpg";
+import emptyCard from "../../../public/imgs/team-card-hulk.jpg";
 
 import Spinner from "../../common/spinner/Spinner";
 

@@ -1,4 +1,4 @@
-import imageNotFound from "../../../src/imgs/notFound.png";
+import imageNotFound from "../../../public/imgs/notFound.png";
 
 import { useSelector } from "react-redux";
 import Image from "next/image";
@@ -12,7 +12,12 @@ const Movie = () => {
                   <li key={item.imdbID}>
                       <div className='movies-list-item'>
                           <div className='movies-list-item-img'>
-                              <Image src={item.Poster !== "N/A" ? item.Poster : imageNotFound} alt='image-not-found' width={300} height={300} />
+                              <Image
+                                  src={item.Poster !== "N/A" ? item.Poster : imageNotFound}
+                                  alt='image-not-found'
+                                  width={300}
+                                  height={300}
+                              />
                           </div>
                           <div>{item.Title}</div>
                           <div>{item.Year}</div>

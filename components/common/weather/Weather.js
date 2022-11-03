@@ -1,6 +1,6 @@
-import weather_rain from "../../../src/imgs/weather-wet.png";
-import weather_sunny from "../../../src/imgs/weather-sunny.png";
-import weather_cloud from "../../../src/imgs/weather-cloud.png";
+import weather_rain from "../../../public/imgs/weather-wet.png";
+import weather_sunny from "../../../public/imgs/weather-sunny.png";
+import weather_cloud from "../../../public/imgs/weather-cloud.png";
 
 import { useState, useEffect } from "react";
 import { fetchWeatherForecast } from "../../main/mainPageSlice";

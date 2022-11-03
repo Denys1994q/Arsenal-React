@@ -1,8 +1,8 @@
-import slider1 from "../../../src/imgs/slider-1.jpg";
-import slider2 from "../../../src/imgs/slider-2.jpg";
-import slider3 from "../../../src/imgs/slider-3.jpg";
-import slider4 from "../../../src/imgs/slider-4.jpg";
-import slider5 from "../../../src/imgs/slider-5.jpg";
+import slider1 from "../../../public/imgs/slider-1.jpg";
+import slider2 from "../../../public/imgs/slider-2.jpg";
+import slider3 from "../../../public/imgs/slider-3.jpg";
+import slider4 from "../../../public/imgs/slider-4.jpg";
+import slider5 from "../../../public/imgs/slider-5.jpg";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
