@@ -1,7 +1,12 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
+  "/contacts": "pages/contacts.html",
+  "/shop": "pages/shop.html",
+  "/team": "pages/team.html",
+  "/cinema": "pages/cinema.html",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/cinema": "pages/cinema.js"
+  "/squad/[id]": "pages/squad/[id].html",
+  "/": "pages/index.html",
+  "/404": "pages/404.html"
 }
