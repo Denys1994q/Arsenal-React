@@ -7,10 +7,6 @@ import { faSearch, faSpinner } from "@fortawesome/free-solid-svg-icons";
 const Search = () => {
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchMovies("arsenal"));
-    }, []);
-
     const movies = useSelector(state => state.cinemaSlice.movies);
     const loading = useSelector(state => state.cinemaSlice.moviesLoading);
 

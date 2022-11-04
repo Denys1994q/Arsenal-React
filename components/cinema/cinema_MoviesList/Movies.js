@@ -1,9 +1,9 @@
 import Movie from "./Movie";
 
-const Movies = () => {
+const Movies = ({ preLoadedMovies }) => {
     return (
         <ul className='movies-list'>
-            <Movie />
+            <Movie preLoadedMovies={preLoadedMovies} />
         </ul>
     );
 };

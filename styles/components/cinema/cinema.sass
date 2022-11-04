@@ -48,17 +48,25 @@
     z-index: -1
 // Movies
 .movies-list
-    margin-bottom: 6rem
+    margin-bottom: 10rem
     margin-top: 2rem
     display: grid
     grid-template-columns: repeat(4, 1fr)
     grid-column-gap: 2rem
-    grid-row-gap: 6rem
+    grid-row-gap: 12rem
     &-item
-        height: 40rem
+        height: 35rem
         &-img
             width: 100%
             height: 100%
             img
                 width: 100%
                 height: 100%
+        &-box
+            margin: .5rem 0rem 1rem 0rem
+            text-align: center
+            background: #bbacac
+            padding: .5rem
+            color: white
+            &-title
+                font-weight: 700
