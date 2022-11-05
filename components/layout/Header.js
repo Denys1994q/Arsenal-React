@@ -1,24 +1,19 @@
-import Link from "next/link";
-import Image from "next/image";
-
 import logo from "../../public/imgs/logo.svg";
 import adidas from "../../public/imgs/adidas.png";
 import emirates from "../../public/imgs/emirates.png";
 import visitRwanda from "../../public/imgs/visit-rwanda.png";
 
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 import Squad from "../squad/Squad";
 
 const Header = () => {
+    const { asPath } = useRouter();
+
     const [showBasket, setShowBasket] = useState(false);
-
-    // let location = useLocation();
-
-    // useEffect(() => {
-    //     location.pathname === "/shop" ? setShowBasket(true) : setShowBasket(false);
-    // }, [location]);
-
     const [showTab, setShowTab] = useState(false);
 
     const showBasketContent = showBasket ? (
@@ -87,16 +82,24 @@ const Header = () => {
                                         className='header-squad-fake'></div>
                                 </li>
                                 <li>
-                                    <Link href='/team'>Create team</Link>
+                                    <Link href='/team' className={asPath === "/team" ? "activeLink" : ""}>
+                                        Create team
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href='/cinema'>Cinema</Link>
+                                    <Link href='/cinema' className={asPath === "/cinema" ? "activeLink" : ""}>
+                                        Cinema
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href='/shop'>Shop</Link>
+                                    <Link href='/shop' className={asPath === "/shop" ? "activeLink" : ""}>
+                                        Shop
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href='/contacts'>Contact us</Link>
+                                    <Link href='/contacts' className={asPath === "/contacts" ? "activeLink" : ""}>
+                                        Contact us
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
