@@ -1,5 +1,3 @@
-// додати редакс до некст https://medium.com/nextjs/how-to-use-redux-and-redux-tool-kit-in-nextjs-666a126b9703
-// Yes you can but you won’t be able to use getServerSideProps, getStaticProps, getStaticPaths, or getInitialProps. Then you’ll need the wrapper.
 import leicester_logo from "../public/imgs/leicester_logo.png";
 import arsenal_logo from "../public/imgs/logo.svg";
 
@@ -9,9 +7,6 @@ import Image from "next/image";
 import Slider from "../components/common/slider/Slider";
 import Timer from "../components/common/timer/Timer";
 import Weather from "../components/common/weather/Weather";
-
-// To resolve this issue, we will take advantage of the wrapper function that we created earlier and use Next’s special function getServerSideProps, as this will get called each time the page loads.
-// https://blog.logrocket.com/use-redux-next-js/
 
 const Main = () => {
     return (

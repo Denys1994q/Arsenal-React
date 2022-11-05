@@ -18,7 +18,7 @@ const Slider = () => {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            // slidesAutoStart()
+            // slidesAutoStart();
         }, 5000);
         return () => clearInterval(timer);
     }, []);
@@ -36,7 +36,7 @@ const Slider = () => {
     const dots = imgsArr.map((item, i) => {
         return (
             <>
-                <li onClick={() => changeSlide(i)} className={slide == i ? "dot active-dot" : "dot"}></li>
+                <li key={i} onClick={() => changeSlide(i)} className={slide == i ? "dot active-dot" : "dot"}></li>
             </>
         );
     });

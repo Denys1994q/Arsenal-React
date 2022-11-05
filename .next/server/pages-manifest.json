@@ -2,8 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/team": "pages/team.js",
+  "/contacts": "pages/contacts.js",
   "/shop": "pages/shop.js",
-  "/": "pages/index.js",
-  "/contacts": "pages/contacts.js"
+  "/cinema": "pages/cinema.js",
+  "/team": "pages/team.js",
+  "/squad/[id]": "pages/squad/[id].js"
 }
