@@ -27,7 +27,7 @@ const Header = () => {
 
     useEffect(() => {
         if (window.innerWidth < 635) {
-            clickedBurger(false);
+            setClickedBurger(false);
         }
     }, []);
 
