@@ -6,7 +6,7 @@ import visitRwanda from "../../public/imgs/visit-rwanda.png";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,9 +15,21 @@ import Squad from "../squad/Squad";
 const Header = () => {
     const { asPath } = useRouter();
 
+    useEffect(() => {
+        console.log(window.innerWidth);
+    }, []);
+
     const [showBasket, setShowBasket] = useState(false);
     const [showTab, setShowTab] = useState(false);
     const [clickedBurger, setClickedBurger] = useState(true);
+
+    // за визначенням  clickedBurger - false, але, якщо ширина екрану менше ніж 426 чи скільки там, то він тру. Просто через юзЕфект перевірку і нижче поміняти у верстці.
+
+    useEffect(() => {
+        if (window.innerWidth < 635) {
+            clickedBurger(false);
+        }
+    }, []);
 
     const showBasketContent = showBasket ? (
         <div className='header__wrapper_brends'>
@@ -33,8 +45,16 @@ const Header = () => {
         </div>
     );
 
+    const toggleBurgerMenu = () => {
+        setClickedBurger(old => !old);
+        setShowTab(false);
+    };
+
+    const [mobile, setMobile] = useState(false);
+
     return (
         <div>
+            {typeof window !== undefined ? <div>fsdfsdfsdfsdfsdf</div> : ""}
             <div className='header-container'>
                 <header className='header'>
                     <div className='header__wrapper_top'>
@@ -66,7 +86,7 @@ const Header = () => {
                             </li>
                         </ul>
                     </div>
-                    <div style={{'display': clickedBurger ? 'flex' : 'none'}} className='header__wrapper'>
+                    <div style={{ display: clickedBurger ? "flex" : "none" }} className='header__wrapper'>
                         <div className='header__wrapper_Image'>
                             <Link href='/'>
                                 <Image className='header__logo' src={logo} width={110} alt='' />
@@ -74,7 +94,7 @@ const Header = () => {
                         </div>
                         <div className='header__wrapper_list'>
                             <ul className='header__box_list'>
-                                <li onMouseEnter={() => setShowTab(true)} className='header-squad'>
+                                <li onClick={() => setShowTab(old => !old)} className='header-squad'>
                                     <Link href='/'>Squad</Link>
                                     <div
                                         className={
@@ -109,17 +129,14 @@ const Header = () => {
                         {showBasketContent}
                     </div>
                 </header>
-                <div
-                    style={{ display: showTab ? "flex" : "none" }}
-                    className='header-tab'
-                    onMouseLeave={e => setShowTab(false)}>
+                <div style={{ display: showTab ? "flex" : "none" }} className='header-tab'>
                     <Squad />
                 </div>
                 <div className='burgerMenu'>
                     <FontAwesomeIcon
                         icon={faBars}
                         className={"fa fa-bars fa-2x"}
-                        onClick={() => setClickedBurger(old => !old)}
+                        onClick={() => toggleBurgerMenu()}
                         style={{ color: "white" }}></FontAwesomeIcon>
                 </div>
             </div>

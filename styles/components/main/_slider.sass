@@ -184,7 +184,8 @@
         margin-top: -4rem
 @media (max-width: 915px)
     .header__logo
-        display: none
+        top: -3.5rem
+        width: 4rem
     .header__wrapper_list
         padding-left: 0
     .header__wrapper_list
@@ -206,7 +207,11 @@
         height: auto
     .header-tab
         font-size: 1.4rem
-@media (max-width: 605px)
+@media (max-width: 635px)
+    .header__logo
+        top: -8.5rem
+        z-index: 102
+        width: 4rem
     .header__wrapper_top
         justify-content: center
         padding-right: 0
@@ -215,10 +220,12 @@
         position: absolute
         background: $mainRedColor
         margin-top: 3.8rem
-        width: 50%
+        width: 100%
         border: 1px solid white
         border-top: none
         border-left: none
+        &_list
+            text-align: center
     .header__box_list
         display: block
         opacity: 1
@@ -262,3 +269,4 @@
     .header-tab-item
         text-align: center
 // лого має бути. Треба раніше бургер і лого збоку, або Хоум 
+// просто по кліку відкривати закривати на мобілці 
