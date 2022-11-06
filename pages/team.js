@@ -1,5 +1,6 @@
 import team_header from "../public/imgs/team-header.jpg";
 
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import Skeleton from "../components/common/skeleton/Skeleton";
@@ -10,6 +11,13 @@ import TeamPlayerDescription from "../components/team/team_TeamPlayerDescription
 
 const Team = () => {
     const clikedHeroFromList = useSelector(state => state.teamSlice.clikedHeroFromList);
+
+    const [hideTeamBoard, setHideTeamBoard] = useState(false);
+    useEffect(() => {
+        if (window.innerWidth < 635) {
+            setHideTeamBoard(true);
+        }
+    }, []);
 
     const content =
         clikedHeroFromList || clikedHeroFromList === 0 ? (
@@ -40,7 +48,7 @@ const Team = () => {
                         </div>
                     </div>
                 </div>
-                <div className='team-right team-container'>
+                <div style={{ display: hideTeamBoard ? "none" : "grid" }} className='team-right team-container'>
                     <TeamPlayersBoard />
                 </div>
                 <div className='team-bottom'>

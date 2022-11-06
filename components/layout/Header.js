@@ -15,15 +15,9 @@ import Squad from "../squad/Squad";
 const Header = () => {
     const { asPath } = useRouter();
 
-    useEffect(() => {
-        console.log(window.innerWidth);
-    }, []);
-
     const [showBasket, setShowBasket] = useState(false);
     const [showTab, setShowTab] = useState(false);
     const [clickedBurger, setClickedBurger] = useState(true);
-
-    // за визначенням  clickedBurger - false, але, якщо ширина екрану менше ніж 426 чи скільки там, то він тру. Просто через юзЕфект перевірку і нижче поміняти у верстці.
 
     useEffect(() => {
         if (window.innerWidth < 635) {
@@ -50,11 +44,12 @@ const Header = () => {
         setShowTab(false);
     };
 
-    const [mobile, setMobile] = useState(false);
+    const toggleTab = () => {
+        setShowTab(old => !old);
+    };
 
     return (
         <div>
-            {typeof window !== undefined ? <div>fsdfsdfsdfsdfsdf</div> : ""}
             <div className='header-container'>
                 <header className='header'>
                     <div className='header__wrapper_top'>
@@ -94,8 +89,8 @@ const Header = () => {
                         </div>
                         <div className='header__wrapper_list'>
                             <ul className='header__box_list'>
-                                <li onClick={() => setShowTab(old => !old)} className='header-squad'>
-                                    <Link href='/'>Squad</Link>
+                                <li onClick={() => toggleTab()} className='header-squad'>
+                                    <div>Squad</div>
                                     <div
                                         className={
                                             showTab ? "header-squad-bef header-squad-bef-active" : "header-squad-bef"
@@ -130,7 +125,7 @@ const Header = () => {
                     </div>
                 </header>
                 <div style={{ display: showTab ? "flex" : "none" }} className='header-tab'>
-                    <Squad />
+                    <Squad setShowTab={setShowTab} />
                 </div>
                 <div className='burgerMenu'>
                     <FontAwesomeIcon
