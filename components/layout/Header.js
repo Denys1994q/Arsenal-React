@@ -6,7 +6,9 @@ import visitRwanda from "../../public/imgs/visit-rwanda.png";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 import Squad from "../squad/Squad";
 
@@ -15,6 +17,7 @@ const Header = () => {
 
     const [showBasket, setShowBasket] = useState(false);
     const [showTab, setShowTab] = useState(false);
+    const [clickedBurger, setClickedBurger] = useState(true);
 
     const showBasketContent = showBasket ? (
         <div className='header__wrapper_brends'>
@@ -63,7 +66,7 @@ const Header = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className='header__wrapper'>
+                    <div style={{'display': clickedBurger ? 'flex' : 'none'}} className='header__wrapper'>
                         <div className='header__wrapper_Image'>
                             <Link href='/'>
                                 <Image className='header__logo' src={logo} width={110} alt='' />
@@ -111,6 +114,13 @@ const Header = () => {
                     className='header-tab'
                     onMouseLeave={e => setShowTab(false)}>
                     <Squad />
+                </div>
+                <div className='burgerMenu'>
+                    <FontAwesomeIcon
+                        icon={faBars}
+                        className={"fa fa-bars fa-2x"}
+                        onClick={() => setClickedBurger(old => !old)}
+                        style={{ color: "white" }}></FontAwesomeIcon>
                 </div>
             </div>
         </div>
