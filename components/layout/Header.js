@@ -99,22 +99,22 @@ const Header = () => {
                                         style={{ display: showTab ? "block" : "none" }}
                                         className='header-squad-fake'></div>
                                 </li>
-                                <li onClick={() => setClickedBurger(false)}>
+                                <li>
                                     <Link href='/team' className={asPath === "/team" ? "activeLink" : ""}>
                                         Create team
                                     </Link>
                                 </li>
-                                <li onClick={() => setClickedBurger(false)}>
+                                <li>
                                     <Link href='/cinema' className={asPath === "/cinema" ? "activeLink" : ""}>
                                         Cinema
                                     </Link>
                                 </li>
-                                <li onClick={() => setClickedBurger(false)}>
+                                <li>
                                     <Link href='/shop' className={asPath === "/shop" ? "activeLink" : ""}>
                                         Shop
                                     </Link>
                                 </li>
-                                <li onClick={() => setClickedBurger(false)}>
+                                <li>
                                     <Link href='/contacts' className={asPath === "/contacts" ? "activeLink" : ""}>
                                         Contact us
                                     </Link>

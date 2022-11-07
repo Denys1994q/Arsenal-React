@@ -17,6 +17,13 @@ const TeamList = () => {
         }
     }, []);
 
+    const getHero = id => {
+        if (!heroes[i].name) {
+            dispatch(fetchHero());
+            dispatch(team_activeHero(id));
+        }
+    };
+
     const showTeamSquad = heroes.map((item, i) => {
         const style = item.captain ? "fa fa-star red-color" : "fa fa-star black-color";
         return (
@@ -24,7 +31,7 @@ const TeamList = () => {
                 <FontAwesomeIcon icon={faStar} className={style} onClick={() => makeCaptain(i)}></FontAwesomeIcon>
                 {item.position} - <span onClick={() => makeActive(i)}>{heroes[i].name}</span>
                 {showHeroBtns ? (
-                    <button className='btn' onClick={() => dispatch(fetchHero())}>
+                    <button className='btn' onClick={() => getHero(i)}>
                         Get random hero
                     </button>
                 ) : null}

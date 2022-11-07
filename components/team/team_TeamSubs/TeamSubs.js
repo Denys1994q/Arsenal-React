@@ -4,15 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faExchange } from "@fortawesome/free-solid-svg-icons";
 
 import { team_makeSubstitution } from "../teamSlice";
-// import Sub_Card from "./subCard/Sub_Card";
 
 const TeamSubs = () => {
     const dispatch = useDispatch();
-    // fa fa-random
     const heroes = useSelector(state => state.teamSlice.heroes);
-
-    // карточка інпута
-    // {heroIn: {name: '', img: ''}, heroOut: ''}
 
     const [searchHero1, setSearchHero1] = useState();
     const [searchHero2, setSearchHero2] = useState();
@@ -224,7 +219,7 @@ const TeamSubs = () => {
                                 style={{
                                     marginBottom: "10px",
                                     width: "15rem",
-                                    height: '3rem',
+                                    height: "3rem",
                                     background: "#222030",
                                     border: "none",
                                     color: "#fff",

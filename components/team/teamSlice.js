@@ -22,7 +22,7 @@ for (let i = 0; i < 11; i++) {
         img: emptyCard,
         num: i,
         loading: false,
-        name: "  ",
+        name: "",
         description: "",
         position: positionArr[i],
         captain: false,
