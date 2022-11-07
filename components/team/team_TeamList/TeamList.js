@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-import { team_getClikedHeroFromList, team_makeCaptain, fetchHero } from "../teamSlice";
+import { team_getClikedHeroFromList, team_makeCaptain, team_activeHero, fetchHero } from "../teamSlice";
 
 const TeamList = () => {
     const dispatch = useDispatch();
@@ -18,10 +18,12 @@ const TeamList = () => {
     }, []);
 
     const getHero = id => {
-        if (!heroes[id].name) {
-            dispatch(fetchHero());
-            dispatch(team_activeHero(id));
-        }
+        // if (!heroes[id].name) {
+        //     dispatch(fetchHero());
+        //     dispatch(team_activeHero(id));
+        // }
+        dispatch(fetchHero());
+        dispatch(team_activeHero(id));
     };
 
     const showTeamSquad = heroes.map((item, i) => {
