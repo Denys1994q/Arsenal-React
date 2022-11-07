@@ -35,7 +35,7 @@ const TeamList = () => {
                 {item.position} - <span onClick={() => makeActive(i)}>{heroes[i].name}</span>
                 {showHeroBtns && i === clickedBtnIndex ? (
                     <button
-                        style={{ display: i === clickedBtnIndex ? "none" : "inline-block" }}
+                        // style={{ display: i === clickedBtnIndex ? "none" : "inline-block" }}
                         className='btn'
                         onClick={() => getHero(i)}>
                         Get random hero
