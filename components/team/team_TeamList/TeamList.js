@@ -18,7 +18,7 @@ const TeamList = () => {
     }, []);
 
     const getHero = id => {
-        if (!heroes[i].name) {
+        if (!heroes[id].name) {
             dispatch(fetchHero());
             dispatch(team_activeHero(id));
         }
