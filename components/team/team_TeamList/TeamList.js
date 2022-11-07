@@ -11,6 +11,7 @@ const TeamList = () => {
     const heroes = useSelector(state => state.teamSlice.heroes);
 
     const [showHeroBtns, setShowHeroBtns] = useState(false);
+    const [clickedBtnIndex, setClickedBtnIndex] = useState(null);
     useEffect(() => {
         if (window.innerWidth < 835) {
             setShowHeroBtns(true);
@@ -18,12 +19,11 @@ const TeamList = () => {
     }, []);
 
     const getHero = id => {
-        // if (!heroes[id].name) {
-        //     dispatch(fetchHero());
-        //     dispatch(team_activeHero(id));
-        // }
-        dispatch(fetchHero());
-        dispatch(team_activeHero(id));
+        if (!heroes[id].name) {
+            dispatch(fetchHero());
+            dispatch(team_activeHero(id));
+        }
+        setClickedBtnIndex(id);
     };
 
     const showTeamSquad = heroes.map((item, i) => {
@@ -33,7 +33,10 @@ const TeamList = () => {
                 <FontAwesomeIcon icon={faStar} className={style} onClick={() => makeCaptain(i)}></FontAwesomeIcon>
                 {item.position} - <span onClick={() => makeActive(i)}>{heroes[i].name}</span>
                 {showHeroBtns ? (
-                    <button className='btn' onClick={() => getHero(i)}>
+                    <button
+                        style={{ display: i === clickedBtnIndex ? "none" : "block" }}
+                        className='btn'
+                        onClick={() => getHero(i)}>
                         Get random hero
                     </button>
                 ) : null}
