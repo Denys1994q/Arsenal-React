@@ -18,7 +18,6 @@ const TeamList = () => {
         }
     }, []);
 
-    // клікнув, кнопка зникла, а потім знову повернулася
     const getHero = id => {
         if (!heroes[id].name) {
             dispatch(fetchHero());
@@ -35,7 +34,6 @@ const TeamList = () => {
                 {item.position} - <span onClick={() => makeActive(i)}>{heroes[i].name}</span>
                 {showHeroBtns && i === clickedBtnIndex ? (
                     <button
-                        // style={{ display: i === clickedBtnIndex ? "none" : "inline-block" }}
                         className='btn'
                         onClick={() => getHero(i)}>
                         Get random hero
