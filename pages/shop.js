@@ -221,7 +221,7 @@ const Shop = () => {
                 <ul className='shop-shirt-sizes-list'>{contentSizes}</ul>
             </div>
             <div className='shop-shirt-price'>
-                <div>
+                <div className='shopDesc'>
                     <ShopDesc />
                 </div>
                 <div className='shop-shirt-price-item'>£{shirts[active].price}.00</div>

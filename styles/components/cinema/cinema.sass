@@ -70,3 +70,32 @@
             color: white
             &-title
                 font-weight: 700
+
+@media (max-width: 1100px)
+    .movies-search-inp
+        width: 40%
+@media (max-width: 1000px)
+    .movies-list
+        grid-template-columns: repeat(3, 1fr)
+    .movies-search-inp
+        width: 50%
+@media (max-width: 700px)
+    .movies-list
+        grid-template-columns: repeat(2, 1fr)
+@media (max-width: 450px)
+    .movies-list
+        margin-top: 4rem
+        grid-template-columns: repeat(2, 1fr)
+        grid-row-gap: 6rem
+    .movies-list-item-img img
+        height: auto
+    .movies-list-item-img
+        height: auto
+    .movies-search-inp
+        width: 80%
+@media (max-width: 380px)
+    .movies-list
+        grid-template-columns: repeat(2, 1fr)
+        grid-row-gap: 2rem
+    .movies-search-inp
+        width: 90%
