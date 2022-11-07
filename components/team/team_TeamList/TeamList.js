@@ -1,20 +1,33 @@
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-import { team_getClikedHeroFromList, team_makeCaptain } from "../teamSlice";
+import { team_getClikedHeroFromList, team_makeCaptain, fetchHero } from "../teamSlice";
 
 const TeamList = () => {
     const dispatch = useDispatch();
 
     const heroes = useSelector(state => state.teamSlice.heroes);
 
+    const [showHeroBtns, setShowHeroBtns] = useState(false);
+    useEffect(() => {
+        if (window.innerWidth < 835) {
+            setShowHeroBtns(true);
+        }
+    }, []);
+
     const showTeamSquad = heroes.map((item, i) => {
         const style = item.captain ? "fa fa-star red-color" : "fa fa-star black-color";
         return (
             <li key={item.num}>
                 <FontAwesomeIcon icon={faStar} className={style} onClick={() => makeCaptain(i)}></FontAwesomeIcon>
-                {item.position} -<span onClick={() => makeActive(i)}>{heroes[i].name}</span>
+                {item.position} - <span onClick={() => makeActive(i)}>{heroes[i].name}</span>
+                {showHeroBtns ? (
+                    <button className='btn' onClick={() => dispatch(fetchHero())}>
+                        Get random hero
+                    </button>
+                ) : null}
             </li>
         );
     });

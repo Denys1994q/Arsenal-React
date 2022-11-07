@@ -14,7 +14,7 @@ const Team = () => {
 
     const [hideTeamBoard, setHideTeamBoard] = useState(false);
     useEffect(() => {
-        if (window.innerWidth < 635) {
+        if (window.innerWidth < 835) {
             setHideTeamBoard(true);
         }
     }, []);

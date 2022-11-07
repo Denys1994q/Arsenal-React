@@ -83,7 +83,7 @@ const Header = () => {
                     </div>
                     <div style={{ display: clickedBurger ? "flex" : "none" }} className='header__wrapper'>
                         <div className='header__wrapper_Image'>
-                            <Link href='/'>
+                            <Link href='/' onClick={() => setClickedBurger(false)}>
                                 <Image className='header__logo' src={logo} width={110} alt='' />
                             </Link>
                         </div>
@@ -99,22 +99,22 @@ const Header = () => {
                                         style={{ display: showTab ? "block" : "none" }}
                                         className='header-squad-fake'></div>
                                 </li>
-                                <li>
+                                <li onClick={() => setClickedBurger(false)}>
                                     <Link href='/team' className={asPath === "/team" ? "activeLink" : ""}>
                                         Create team
                                     </Link>
                                 </li>
-                                <li>
+                                <li onClick={() => setClickedBurger(false)}>
                                     <Link href='/cinema' className={asPath === "/cinema" ? "activeLink" : ""}>
                                         Cinema
                                     </Link>
                                 </li>
-                                <li>
+                                <li onClick={() => setClickedBurger(false)}>
                                     <Link href='/shop' className={asPath === "/shop" ? "activeLink" : ""}>
                                         Shop
                                     </Link>
                                 </li>
-                                <li>
+                                <li onClick={() => setClickedBurger(false)}>
                                     <Link href='/contacts' className={asPath === "/contacts" ? "activeLink" : ""}>
                                         Contact us
                                     </Link>

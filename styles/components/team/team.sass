@@ -276,54 +276,74 @@
         div
             margin-bottom: 1rem
 
-@media (max-width: 950px)
+@media (max-width: 1250px)
     .card-football__side
         width: 8rem
         height: 8rem
     .team-right
         width: 100%
-        margin-top: -14rem
+        margin-top: 2rem
     .team
         display: block
     .team-right team-container
         width: 100%
     .team-left
         width: 100%
-        height: auto
+        height: 100%
         text-align: center
-        margin-top: -7rem
+        &-text
+            height: auto
+            margin-top: 0
+        &-img
+            display: none
     .team-left ol
         display: none
     .team-bottom
         flex-direction: column
+        margin-top: 3rem
     .char__info
         width: 50%
         margin: 0 auto
         margin-bottom: 2rem
     .team-bottom-subs
         width: 100%
-@media (max-width: 840px)
-    .card-football__side
-        width: 6rem
-        height: 6rem
-    .char__info
-        margin-bottom: 5rem
-        margin-top: -10rem
-@media (max-width: 800px)
+        margin-top: 3rem
     .team-container
         background-size: cover
-        background-position: 0px 0px
-    .char__info
-        margin-top: 5rem
-    .card-football__side
-        width: 7rem
-        height: 7rem
-@media (max-width: 665px)
-    .card-football__side
-        width: 6rem
-        height: 6rem
-    .team-left
-        margin-top: 0
-    .card-football
-        width: auto
+        background-position: 0px -40px
+    .team .item-1
+        grid-row: 5/6
+    .team .item-2
+        grid-row: 2/3
+    .team .item-3
+        grid-row: 4/5
+    .team .item-4
+        grid-row: 6/7
+    .team .item-5
+        grid-row: 8/9
+    .team .item-7
+        grid-row: 5/6
+    .team .item-8
+        grid-row: 8/9
+    .team .item-11
+        grid-row: 8/9
+    .team .item-10
+        grid-row: 5/6
+@media (max-width: 1050px)
+    .team-container
+        background-size: cover
+        background-position: 0px 7px
+@media (max-width: 900px)
+    .team-bottom-subs
+        flex-wrap: wrap
         height: auto
+        justify-content: space-around
+        row-gap: 5rem
+    .team-bottom-subs-1, .team-bottom-subs-2, .team-bottom-subs-3
+        width: 50%
+@media (max-width: 750px)
+    .team-bottom-subs-1, .team-bottom-subs-2, .team-bottom-subs-3
+        width: 60%
+@media (max-width: 550px)
+    .team-bottom-subs-1, .team-bottom-subs-2, .team-bottom-subs-3
+        width: 100%
