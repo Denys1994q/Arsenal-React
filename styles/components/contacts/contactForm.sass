@@ -64,3 +64,37 @@
     opacity: 1
 .red-border
     border: 2px solid red
+
+@media (max-width: 1020px)
+    .contactForm
+        column-gap: 2rem
+        clip-path: none
+        margin: 0 auto
+        background: none
+        flex-wrap: wrap
+    .contactForm-textArea
+        margin-left: 0
+    .contactForm-select
+        margin-left: 0
+@media (max-width: 980px)
+    .contactForm
+        display: block
+        margin-left: 0
+    .contactForm-select
+        margin-bottom: 2rem
+    .contactForm-btn
+        margin-left: 0
+    .contactForm-input
+        width: 65%
+@media (max-width: 660px)
+    .contactForm-input
+        width: 90%
+@media (max-width: 450px)
+    .contactForm
+        width: 100%
+    .contactForm-select
+        width: 100%
+    .contactForm-input
+        width: 100%
+    .contactForm-btn
+        width: 100%
