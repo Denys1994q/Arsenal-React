@@ -48,6 +48,12 @@ const Header = () => {
         setShowTab(old => !old);
     };
 
+    const closeMenu = () => {
+        if (window.innerWidth < 635) {
+            setClickedBurger(false);
+        }
+    };
+
     return (
         <div>
             <div className='header-container'>
@@ -83,7 +89,7 @@ const Header = () => {
                     </div>
                     <div style={{ display: clickedBurger ? "flex" : "none" }} className='header__wrapper'>
                         <div className='header__wrapper_Image'>
-                            <Link href='/' onClick={() => setClickedBurger(false)}>
+                            <Link href='/' onClick={() => closeMenu()}>
                                 <Image className='header__logo' src={logo} width={110} alt='' />
                             </Link>
                         </div>
@@ -100,22 +106,34 @@ const Header = () => {
                                         className='header-squad-fake'></div>
                                 </li>
                                 <li>
-                                    <Link href='/team' className={asPath === "/team" ? "activeLink" : ""}>
+                                    <Link
+                                        href='/team'
+                                        onClick={() => closeMenu()}
+                                        className={asPath === "/team" ? "activeLink" : ""}>
                                         Create team
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href='/cinema' className={asPath === "/cinema" ? "activeLink" : ""}>
+                                    <Link
+                                        href='/cinema'
+                                        onClick={() => closeMenu()}
+                                        className={asPath === "/cinema" ? "activeLink" : ""}>
                                         Cinema
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href='/shop' className={asPath === "/shop" ? "activeLink" : ""}>
+                                    <Link
+                                        href='/shop'
+                                        onClick={() => closeMenu()}
+                                        className={asPath === "/shop" ? "activeLink" : ""}>
                                         Shop
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href='/contacts' className={asPath === "/contacts" ? "activeLink" : ""}>
+                                    <Link
+                                        href='/contacts'
+                                        onClick={() => closeMenu()}
+                                        className={asPath === "/contacts" ? "activeLink" : ""}>
                                         Contact us
                                     </Link>
                                 </li>
