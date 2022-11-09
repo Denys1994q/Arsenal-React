@@ -177,6 +177,7 @@
         display: block
     .shop-shirt-sizes
         margin-left: 0rem
+        z-index: -1
     .shop-shirt-price
         margin-top: 22rem
 @media (max-width: 670px)
@@ -264,8 +265,6 @@
         &-item
             width: 100%
             height: auto
-    .shop-shirt-sizes
-        z-index: 99
     .shop-shirt-price
         margin-top: -8rem
     .shop-shirt-price-btn
@@ -286,8 +285,10 @@
     .shop-shirt-inpText
         width: 12rem
     .shop-shirt-inpText-1
+        top: 28rem
         left: 2rem
     .shop-shirt-inpText-2
+        top: 28rem
         left: 18rem
     .shop-shirt-title
         left: 10rem
@@ -311,9 +312,17 @@
     .shop-shirt-price
         width: 100%
         margin-top: -24rem
+    .btn-next
+        left: 31rem
+    .shop-shirt-inpText
+        width: 15rem
+    .shop-shirt-sizes ul
+        margin-top: -26rem
 @media (max-width: 380px)
+    .shop-shirt-inpText
+        width: 12rem
     .shop-shirt-left
-        width: 280px
+        width: 340px
     .shop-shirt-right-img
         width: 280px
     .btn-next
@@ -333,3 +342,6 @@
         margin-top: -5rem
     .shop-shirt-price-item
         width: 305px
+@media (max-width: 350px)
+    .shop-shirt-left
+        width: 280px

@@ -18,7 +18,7 @@ const Slider = () => {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            // slidesAutoStart();
+            slidesAutoStart();
         }, 5000);
         return () => clearInterval(timer);
     }, []);
