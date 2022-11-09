@@ -10,6 +10,7 @@ const Search = () => {
     const movies = useSelector(state => state.cinemaSlice.movies);
     const loading = useSelector(state => state.cinemaSlice.moviesLoading);
 
+    const [hideVideoOnMobile, setHideVideoOnMobile] = useState(false);
     const [searchValue, setSearchValue] = useState("");
 
     const handleKey = e => {
@@ -18,14 +19,22 @@ const Search = () => {
         }
     };
 
+    useEffect(() => {
+        if (window.innerWidth < 701) {
+            setHideVideoOnMobile(true);
+        }
+    }, []);
+
     return (
         <div className='movies-search-inpWrapper'>
-            <video className='video' autoPlay muted loop>
-                <source
-                    src={require("../../../public/imgs/Frustrated fans watching a football game.mp4")}
-                    type='video/mp4'
-                />
-            </video>
+            {!hideVideoOnMobile ? (
+                <video className='video' autoPlay muted loop>
+                    <source
+                        src={require("../../../public/imgs/Frustrated fans watching a football game.mp4")}
+                        type='video/mp4'
+                    />
+                </video>
+            ) : null}
             <div className='movies-search-inp'>
                 <input
                     value={searchValue}

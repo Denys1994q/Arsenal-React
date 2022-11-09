@@ -13,7 +13,7 @@ const TeamPlayerDescription = () => {
                 <div className='char__info-text'>
                     <div className='char__info-text-title'>{heroes[clikedHeroFromList].name}</div>
                     <div>
-                        <p>No description for this character</p>
+                        <p className='char__info-text-desc'>No description for this character</p>
                         <a className='btn team-btn' href={heroes[clikedHeroFromList].homepage} target='_blank'>
                             {" "}
                             homepage{" "}
