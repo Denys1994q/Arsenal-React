@@ -143,7 +143,7 @@ const Header = () => {
                     </div>
                 </header>
                 <div style={{ display: showTab ? "flex" : "none" }} className='header-tab'>
-                    <Squad setShowTab={setShowTab} />
+                    <Squad setShowTab={setShowTab} setClickedBurger={setClickedBurger} />
                 </div>
                 <div className='burgerMenu'>
                     <FontAwesomeIcon

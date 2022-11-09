@@ -2,13 +2,17 @@ import Link from "next/link";
 
 import { players } from "./data";
 
-const Squad = ({ setShowTab }) => {
+const Squad = ({ setShowTab, setClickedBurger }) => {
     const showData = position => {
         const playersOnPosition = players.filter(item => item.position === position);
 
+        const closeTabAndMenu = () => {
+            setShowTab(false)
+            setClickedBurger(false)
+        }
         const showPlayers = playersOnPosition.map(item => {
             return (
-                <li onClick={() => setShowTab(false)} key={item.squadNumber}>
+                <li onClick={() => closeTabAndMenu()} key={item.squadNumber}>
                     <Link href={`/squad/${item.squadNumber}`}>
                         <span>{item.squadNumber}</span>
                         {item.name}
