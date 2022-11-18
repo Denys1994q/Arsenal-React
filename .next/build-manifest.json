@@ -30,10 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/squad/[id]": [
+    "/cinema": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/squad/[id].js"
+      "static/chunks/pages/cinema.js"
+    ],
+    "/team": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/team.js"
     ]
   },
   "ampFirstPages": []

@@ -7,12 +7,12 @@ const Squad = ({ setShowTab, setClickedBurger }) => {
         const playersOnPosition = players.filter(item => item.position === position);
 
         const closeTabAndMenu = () => {
-            setShowTab(false)
-            setClickedBurger(false)
-        }
+            setShowTab(false);
+            setClickedBurger(false);
+        };
         const showPlayers = playersOnPosition.map(item => {
             return (
-                <li onClick={() => closeTabAndMenu()} key={item.squadNumber}>
+                <li key={item.squadNumber}>
                     <Link href={`/squad/${item.squadNumber}`}>
                         <span>{item.squadNumber}</span>
                         {item.name}
