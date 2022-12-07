@@ -1,25 +1,46 @@
 .shop
     display: flex
-    margin-bottom: 22rem
+    flex-wrap: wrap
+    justify-content: space-around
     margin-top: 7rem
+    @include respond(tab-land)
+        justify-content: center
+        margin-bottom: 2rem
     &-shirt
-        width: 35%
-        margin-left: 20rem
+        display: flex
+        flex-wrap: wrap
         position: relative
+        gap: 5rem
+        @include respond(phoneL)
+            gap: 0
         &-left
-            position: absolute
-            top: 0
-            left: -30%
+            position: relative
+            @include respond(phoneL)
+                display: flex
+                flex-wrap: wrap
+                width: 100%
+                justify-content: space-around
             &-title
+                width: 40rem
+                position: absolute
+                top: 0
+                left: 15rem
                 z-index: 3
-                margin-bottom: 2rem
-                font-size: 3.7rem
+                font-size: 2.2rem
                 font-weight: 600
-                position: relative
+                @include respond(phoneL)
+                    width: 100%
+                    left: 0
+                    position: static
+                    margin-bottom: 2rem
             &-item
                 width: 10rem
                 height: 10rem
                 margin-bottom: 5rem
+                @include respond(phoneL)
+                    width: auto
+                    height: auto
+                    margin-bottom: 0
                 img
                     width: 100%
                     transition: .2s all ease-in-out
@@ -27,39 +48,42 @@
                     transform: scale(1.1)
         &-right
             position: relative
-            width: 550px
+            width: 45rem
             z-index: 2
-            &-img
-                position: absolute
-                top: -10px
-                z-index: -2
-                left: 0
-                width: 450px
-                height: 605px
-                img
-                    width: 100%
-                    height: 100%
+            @include respond(phoneL)
+                width: auto
+                background: red
+                margin-bottom: 5rem
+            &-img img
+                width: 40rem
+                @include respond(phoneM)
+                    width: 30rem
         &-title
             text-transform: uppercase
             text-align: center
             width: 15rem
             position: absolute
-            top: 13rem
-            left: 15rem
+            top: 15rem
+            left: 33%
             font-size: 2.4rem
-            font-weight: bold
+            @include respond(phoneM)
+                top: 10rem
+                left: 25%
+                font-size: 1.8rem
         &-number
             text-align: center
             width: 15rem
             position: absolute
-            top: 15rem
-            left: 15rem
-            font-size: 13rem
-            font-weight: bold
+            top: 18rem
+            left: 33%
+            font-size: 11rem
+            @include respond(phoneM)
+                top: 13rem
+                left: 25%
+                font-size: 7rem
         &-inpText
             height: 4.5rem
             margin: 0px 10px
-            height: 45px
             padding-left: 5px
             border: 1px solid #505050
             width: 20rem
@@ -67,18 +91,31 @@
             background: -webkit-linear-gradient(top, rgba(255,255,255,0.66) 0%, rgba(255,255,255,0.82) 47%, #ffffff 100%)
             font-size: 1.6rem
             text-transform: uppercase
+            @include respond(phoneL)
+                width: 15rem
+            @include respond(phoneM)
+                width: 13rem
             &-1
                 position: absolute
-                top: 42rem
-                left: 0
+                top: 43rem
+                left: 0rem
+                @include respond(phoneM)
+                    top: 30rem
             &-2
                 position: absolute
-                top: 42rem
-                left: 23rem
+                top: 43rem
+                right: 2rem
+                @include respond(phoneM)
+                    top: 30rem
+                    right: -1rem
         &-sizes
-            margin-left: 2rem
-            margin-top: 8rem
             &-list
+                @include respond(tab-port)
+                    display: flex
+                    flex-wrap: wrap
+                    gap: 1rem
+                @include respond(phoneL)
+                    gap: .5rem
                 &-item
                     width: 5.5rem
                     height: 5.5rem
@@ -99,6 +136,8 @@
                     color: white
         &-price
             margin-left: 2rem
+            @include respond(phoneL)
+                margin-left: 0
             &-item
                 text-align: center
                 font-size: 3rem
@@ -111,6 +150,10 @@
                 transform: translate(-50%, 0)
                 padding: 1rem
                 cursor: pointer
+                @include respond(phoneM)
+                    width: 100%
+                    margin-left: 0
+                    transform: translate(0, 0)
 // activeImg
 .activeImg
     border: 2px solid rgb(236, 236, 236)
@@ -127,8 +170,12 @@
     position: absolute
     top: 20rem
     transform: translate(0, -50%)
-    left: 40rem
+    right: 2rem
     color: red
+    @include respond(phoneL)
+        left: 3rem
+        right: 0
+        top: 25rem
 // ShopDesc
 .shop-description
     display: flex
@@ -148,200 +195,10 @@
         font-size: 1.4rem
         width: 53rem
         overflow: auto
-        max-height: 20rem
+        height: 20rem
         overflow-y: auto
         margin-bottom: 3rem
-
-@media (max-width: 1265px)
-    .shop
-        flex-wrap: wrap
-        justify-content: center
-        margin-bottom: 2rem
-    .shop-shirt-price
-        margin-top: 15rem
-    .shopDesc
-        display: none
-    .shop-shirt
-        width: 40%
-    .shop-shirt-price
-        width: 100%
-        margin-left: 0
-    .basket
-        right: 1rem
-    .shop-shirt-right
-        width: 35%
-    .shop-shirt-sizes
-        margin-left: 10rem
-@media (max-width: 900px)
-    .shop
-        display: block
-    .shop-shirt-sizes
-        margin-left: 0rem
-        z-index: -1
-    .shop-shirt-price
-        margin-top: 22rem
-@media (max-width: 670px)
-    .basket
-        top: 2rem
-    .basketList
-        top: 8rem
-        right: 1rem
-        width: 90%
-    .shop-shirt
-        position: absolute
-        top: 70px
-        left: -185px
-    .shop-shirt-sizes
-        position: absolute
-        top: 58rem
-        ul
-            display: flex
-            column-gap: 1rem
-    .shop
-        margin-top: 95rem
-    .shop-shirt-left
-        position: static
-        display: flex
-        column-gap: 1rem
-        margin-top: 6rem
-    .shop-shirt-left-item img
-        width: auto
-    .shop-shirt-left-title
-        margin-right: 6rem
-        font-size: 2.7rem
-        margin-top: 4rem
-    .shop-shirt-right
-        margin: 0 auto
-    .shop-shirt-sizes ul
-        margin-top: 25rem
-@media (max-width: 570px)
-    .shop-shirt-left
-        flex-wrap: wrap
-        margin-left: 100%
-    .shop
-        margin-top: 145rem
-    .shop-shirt-sizes ul
-        margin-top: 71rem
-    .shop-shirt-right
-        margin: 0
-@media (max-width: 465px)
-    .shop-shirt-left-title
-        font-size: 2.3rem
-    .shop-shirt-right-img
-        width: 350px
-        left: 50%
-    .shop-shirt-inpText
-        width: 15rem
-    .btn-next
-        left: 35rem
-    .shop-shirt-title
-        left: 13rem
-    .shop-shirt-number
-        left: 13rem
-    .shop-shirt-inpText-2
-        left: 20rem
-        top: 33rem
-    .shop-shirt-inpText-1
-        left: 3rem
-        top: 33rem
-    .shop-shirt-sizes ul
-        row-gap: 0rem
-        margin-left: 3rem
-        margin-top: -18rem
-        display: flex
-        flex-direction: column
-    .shop-shirt-left
-        margin-top: 0
-    .shop-shirt-sizes
-        margin-top: -10rem
-    .shop-shirt-left
-        display: block
-        width: 400px
-        text-align: center
-        margin-left: 0
-        &-title
-            margin-right: 0
-            margin-bottom: 1rem
-        &-item
+        @include respond(phoneL)
             width: 100%
-            height: auto
-    .shop-shirt-price
-        margin-top: -8rem
-    .shop-shirt-price-btn
-        width: 100%
-        margin-left: 0
-        transform: none
-        z-index: 99
-    .shop-shirt-price
-        width: 100%
-        margin-top: 1rem
-@media (max-width: 420px)
-    .shop-shirt-right-img
-        width: 300px
-    .btn-next
-        left: 28rem
-    .shop-shirt-left
-        width: 372px
-    .shop-shirt-inpText
-        width: 12rem
-    .shop-shirt-inpText-1
-        top: 28rem
-        left: 2rem
-    .shop-shirt-inpText-2
-        top: 28rem
-        left: 18rem
-    .shop-shirt-title
-        left: 10rem
-    .shop-shirt-number
-        width: 9rem
-    .shop-shirt-price
-        width: 90%
-    .shop-shirt-left-item
-        margin-bottom: 2rem
-    .shop-shirt-title
-        top: 9rem
-        font-size: 1.4rem
-    .shop-shirt-number
-        top: 12rem
-        font-size: 8rem
-    .shop-shirt-price-btn
-        width: 100%
-        margin-left: 0
-        transform: none
-        z-index: 99
-    .shop-shirt-price
-        width: 100%
-        margin-top: -24rem
-    .btn-next
-        left: 31rem
-    .shop-shirt-inpText
-        width: 15rem
-    .shop-shirt-sizes ul
-        margin-top: -26rem
-@media (max-width: 380px)
-    .shop-shirt-inpText
-        width: 12rem
-    .shop-shirt-left
-        width: 340px
-    .shop-shirt-right-img
-        width: 280px
-    .btn-next
-        left: 26rem
-    .shop-shirt-inpText-2
-        left: 16rem
-    .shop-shirt-title
-        left: 9rem
-    .shop-shirt-number
-        width: 7rem
-    .shop-shirt-price-item
-        width: 320px
-    .shop-shirt-sizes ul
-        margin-left: 1rem
-    .shop-shirt-price
-        width: 100%
-        margin-top: -5rem
-    .shop-shirt-price-item
-        width: 305px
-@media (max-width: 350px)
-    .shop-shirt-left
-        width: 280px
+        @include respond(phoneM)
+            margin-bottom: 1rem

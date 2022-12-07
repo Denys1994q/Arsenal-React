@@ -148,6 +148,21 @@ const Shop = () => {
         };
     }, [amount]);
 
+    const [makeShirtSmaller, setMakeShirtSmaller] = useState(false);
+    // const s = () => {
+    //     console.log(window.innerWidth);
+    //     if (window.innerWidth < 500) {
+    //         setMakeShirtSmaller(true);
+    //         console.log(1);
+    //     }
+    // };
+    useEffect(() => {
+        // window.addEventListener("resize", s);
+        if (window.innerWidth < 650) {
+            setMakeShirtSmaller(true);
+        }
+    }, []);
+
     return (
         <div className='shop'>
             <div className='shop-shirt'>
@@ -157,7 +172,7 @@ const Shop = () => {
                         <Image
                             className={activeSmall === 0 ? "activeImg" : ""}
                             src={shirts[active].smallImgs[0]}
-                            alt=''
+                            alt='arsenal-shirt'
                             width={100}
                             height={150}
                         />
@@ -183,20 +198,24 @@ const Shop = () => {
                 </div>
                 <div className='shop-shirt-right'>
                     <div className='shop-shirt-right-img' onMouseLeave={() => setHideInputs(false)}>
-                        <ReactImageMagnify
-                            {...{
-                                smallImage: {
-                                    alt: "arsenal-shirt-zoomed",
-                                    isFluidWidth: true,
-                                    src: shirts[active].smallImgs[activeSmall],
-                                },
-                                largeImage: {
-                                    src: shirts[active].smallImgs[activeSmall],
-                                    width: 1200,
-                                    height: 1800,
-                                },
-                            }}
-                        />
+                        {makeShirtSmaller ? (
+                            <img src={shirts[active].smallImgs[activeSmall]} />
+                        ) : (
+                            <ReactImageMagnify
+                                {...{
+                                    smallImage: {
+                                        isFluidWidth: true,
+                                        alt: "arsenal-shirt-zoomed",
+                                        src: shirts[active].smallImgs[activeSmall],
+                                    },
+                                    largeImage: {
+                                        src: shirts[active].smallImgs[activeSmall],
+                                        width: 1200,
+                                        height: 1800,
+                                    },
+                                }}
+                            />
+                        )}
                     </div>
                     {showInputs}
                     <div className='btns'>

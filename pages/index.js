@@ -37,7 +37,7 @@ const Main = () => {
                     <div>
                         <div>Match will start in:</div>
                         <div className='card-time'>
-                            <Timer deadline='2022-11-26T15:00:00' />
+                            <Timer deadline='2022-12-26T15:00:00' />
                         </div>
                     </div>
                 </div>
