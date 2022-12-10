@@ -47,6 +47,9 @@ const Header = () => {
     // відкривати закривати бургер меню
     const toggleBurgerMenu = () => {
         setClickedBurger(old => !old);
+
+        // закривати блок з гравцями при закритті меню
+        setShowTab(false);
     };
 
     const toggleTab = () => {
