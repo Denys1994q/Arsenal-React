@@ -8,10 +8,11 @@ const initialState = {
     weatherError: false,
 };
 
-export const fetchWeatherForecast = createAsyncThunk("mainPage/fetchWeatherForecast", () => {
+export const fetchWeatherForecast = createAsyncThunk("mainPage/fetchWeatherForecast", city => {
     const { request } = useHttp();
+    const formattedCity = city.toLowerCase();
     return request(
-        `https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=cea91e10193139338f543bcc88a81974`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${formattedCity}&units=metric&appid=cea91e10193139338f543bcc88a81974`,
         "GET",
         null,
         {}

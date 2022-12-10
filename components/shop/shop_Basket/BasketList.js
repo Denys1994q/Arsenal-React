@@ -1,4 +1,4 @@
-// забрати повідомлення з подякою таймер 
+// забрати повідомлення з подякою таймер
 import { useSelector, useDispatch } from "react-redux";
 import {
     shop_clearOrder,
@@ -40,34 +40,38 @@ const BasketList = () => {
     const showOrder = order.map((item, i) => {
         total += item.quantity * item.price;
         return (
-            <li className='basketList-item'>
-                <div className='basketList-item-img'>
+            <li className='order'>
+                <div className='order__pic'>
                     <img src={item.smallImgs[1]} alt='' />
                 </div>
-                <div className='basketList-item-info'>
-                    <p className='basketList-item-info-name'>
+                <div className='order__info'>
+                    <p className='order__name'>
                         <b>{item.name}</b>
                     </p>
-                    <p className='basketList-item-info-price'>£{item.price}.00</p>
-                    <p className='basketList-item-info-quantity'>
-                        Quantity:{" "}
-                        <FontAwesomeIcon
-                            icon={faMinus}
-                            className='fa fa-minus'
-                            onClick={() => minusQuantity(i)}
-                            style={{ cursor: "pointer" }}></FontAwesomeIcon>
+                    <p className='order__price'>£{item.price}.00</p>
+                    <p className='order__quantity'>
+                        Quantity:
+                        <span className='order__quantity-minus'>
+                            <FontAwesomeIcon
+                                icon={faMinus}
+                                className='fa fa-minus'
+                                onClick={() => minusQuantity(i)}
+                                style={{ cursor: "pointer" }}></FontAwesomeIcon>
+                        </span>
                         {item.quantity}
-                        <FontAwesomeIcon
-                            icon={faPlus}
-                            className='fa fa-plus'
-                            onClick={() => plusQuantity(i)}
-                            style={{ cursor: "pointer" }}></FontAwesomeIcon>
+                        <span className='order__quantity-plus'>
+                            <FontAwesomeIcon
+                                icon={faPlus}
+                                className='fa fa-plus'
+                                onClick={() => plusQuantity(i)}
+                                style={{ cursor: "pointer" }}></FontAwesomeIcon>
+                        </span>
                     </p>
-                    <p className='basketList-item-info-size'>Size: {item.chosenSize}</p>
+                    <p className='order__size'>Size: {item.chosenSize}</p>
                 </div>
-                <div className='basketList-item-price'>
+                <div className='order__price'>
                     <b>£{item.quantity * item.price}</b>
-                    <div className='basketList-item-deleteIcon'>
+                    <div className='order__delete'>
                         <FontAwesomeIcon
                             icon={faTrash}
                             className='fa fa-trash red-color'
@@ -89,20 +93,20 @@ const BasketList = () => {
         <ul style={{ display: openedBasket ? "block" : "none" }} className='basketList browser-default'>
             {order.length === 0 ? (
                 <>
-                    <p className='basketList-empty-title'>YOUR BASKET IS CURRENTLY EMPTY</p>
-                    <div className='basketList-empty-img'>
+                    <p className='basketList__emptyTitle'>YOUR BASKET IS CURRENTLY EMPTY</p>
+                    <div className='basketList__emptyPic'>
                         <img src='/imgs/empty-cart.png' alt='' />
                     </div>
                     <div
                         style={{ display: thanksMessage && openedBasket ? "block" : "none" }}
-                        className='basketList-item-messageThanks'>
+                        className='basketList__thanksMsg'>
                         Thanks, your order was accepted
                     </div>
                 </>
             ) : (
                 <>
                     {showOrder}
-                    <p className='basketList-item-total'>Total: £{total}.00</p>
+                    <p className='basketList__total'>Total: £{total}.00</p>
                     <button onClick={() => showThanksBlock()} className='btn buy-btn'>
                         Buy
                     </button>

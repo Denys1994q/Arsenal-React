@@ -1,0 +1,36 @@
+.contact
+    margin-top: 1rem
+    margin-bottom: .5rem
+    padding: 1rem
+    &__title
+        font-size: 3rem
+        font-weight: 600
+        text-align: center
+        padding: .3rem
+        margin-bottom: 1rem
+    &__text
+        width: 70%
+        margin: 0 auto
+        font-size: 1.6rem
+        padding: .3rem
+        text-align: center
+        @include respond(phoneL)
+            width: 100%
+    &__subtitle
+        font-size: 2.4rem
+        font-weight: 600
+        padding: .3rem
+        margin-bottom: 1rem
+    &__accordionWrapper
+        width: 60%
+        margin-bottom: 4rem
+        padding: .3rem
+        @include respond(tab-land)
+            width: 80%
+        @include respond(tab-port)
+            width: 100%
+            margin-bottom: 1rem
+    &__body
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between

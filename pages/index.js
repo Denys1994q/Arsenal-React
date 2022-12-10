@@ -1,47 +1,25 @@
+import slider1 from "../public/imgs/slider-1.jpg";
+import slider2 from "../public/imgs/slider-2.jpg";
+import slider3 from "../public/imgs/slider-3.jpg";
+import slider4 from "../public/imgs/slider-4.jpg";
+import slider5 from "../public/imgs/slider-5.jpg";
 import leicester_logo from "../public/imgs/leicester_logo.png";
 import arsenal_logo from "../public/imgs/logo.svg";
 
-import Image from "next/image";
-
 // import Modal from "../common/modal/Modal";
 import Slider from "../components/common/slider/Slider";
-import Timer from "../components/common/timer/Timer";
+import InfoCard from "../components/main/infoCard/InfoCard";
 import Weather from "../components/common/weather/Weather";
 
 const Main = () => {
+    const slideImages = [slider2, slider1, slider3, slider4, slider5];
+
     return (
-        <div className='slider-container'>
-            <Slider />
-            <div className='card'>
-                <div className='card-wrapper'>
-                    <div className='card-dateAndStadium'>
-                        <div className='card-date'>Nov 23 Oct - 15:00</div>
-                        <div className='card-stadium'>Emirates Stadium</div>
-                    </div>
-                    <div className='card-league'>Premier League</div>
-                    <div className='card-teams'>
-                        <div className='card-first-team'>
-                            <div className='card-teams-logo'>
-                                <Image src={arsenal_logo} width={80} height={80} alt='arsenal-logo' />
-                            </div>
-                            <div className='card-teams-text'>Arsenal</div>
-                        </div>
-                        <div className='card-teams-sign'>V</div>
-                        <div className='card-second-team'>
-                            <div className='card-teams-logo'>
-                                <Image src={leicester_logo} width={80} height={80} alt='leicester-logo' />
-                            </div>
-                            <div className='card-teams-text'>Leicester City</div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>Match will start in:</div>
-                        <div className='card-time'>
-                            <Timer deadline='2022-12-26T15:00:00' />
-                        </div>
-                    </div>
-                </div>
-                <Weather />
+        <div className='main'>
+            <Slider imgs={slideImages} />
+            <div className='main__right'>
+                <InfoCard homeTeam={arsenal_logo} awayTeam={leicester_logo} dateOfTheMatch='2022-12-26T15:00:00' />
+                <Weather city='London' />
             </div>
             {/* <Modal /> */}
         </div>

@@ -12,7 +12,7 @@ const Squad = ({ setShowTab, setClickedBurger }) => {
         };
         const showPlayers = playersOnPosition.map(item => {
             return (
-                <li key={item.squadNumber}>
+                <li key={item.squadNumber} className='players__itemText'>
                     <Link href={`/squad/${item.squadNumber}`}>
                         <span>{item.squadNumber}</span>
                         {item.name}
@@ -26,19 +26,19 @@ const Squad = ({ setShowTab, setClickedBurger }) => {
 
     return (
         <>
-            <div className='header-tab-item'>
+            <div className='players__itemWrapper'>
                 <p>GOALKEEPERS</p>
                 <ul>{showData("goalkeepers")}</ul>
             </div>
-            <div className='header-tab-item'>
+            <div className='players__itemWrapper'>
                 <p>DEFENDERS</p>
                 <ul>{showData("defenders")}</ul>
             </div>
-            <div className='header-tab-item'>
+            <div className='players__itemWrapper'>
                 <p>MIDFIELDERS</p>
                 <ul>{showData("midfielders")}</ul>
             </div>
-            <div className='header-tab-item'>
+            <div className='players__itemWrapper'>
                 <p>FORWARDS</p>
                 <ul>{showData("forwards")}</ul>
             </div>

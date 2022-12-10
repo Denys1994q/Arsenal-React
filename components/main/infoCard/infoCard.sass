@@ -1,0 +1,71 @@
+.infoCard
+    background: $blueBlackColor
+    color: #fff
+    font-size: 1.4rem
+    padding: .5rem
+    border-top: 4px solid red
+    position: relative
+    &__wrapper
+        margin: 0 auto
+        width: 95%
+        @include respond(phoneL)
+            width: 100%
+    &__dateAndStadium
+        display: flex
+        justify-content: space-between
+        font-weight: 600
+    &__league
+        opacity: .65
+        margin-bottom: 1rem
+        padding-bottom: 3rem
+        border-bottom: 0.1px solid #ffffffb3
+        @include respond(tab-port)
+            padding-bottom: 1rem
+            margin-bottom: 0
+    &__teams
+        display: flex
+        justify-content: space-between
+        align-items: center
+        text-align: center
+        padding-bottom: 3rem
+        border-bottom: 0.1px solid #ffffffb3
+        margin-bottom: 1rem
+        &-logo
+            display: flex
+            align-items: center
+            justify-content: center
+            height: 100px
+        &-logo img
+            width: 8rem
+            height: 8rem
+            object-fit: contain
+            @include respond(tab-port)
+                width: 5rem
+            @include respond(phoneL)
+                width: 8rem
+                height: 8rem
+        &-sign
+            font-size: 4.6rem
+            opacity: .65
+            width: 10%
+        &-text
+            padding-top: 1rem
+            font-size: 1.6rem
+            font-weight: bold
+    &__first-team
+        height: 12rem
+        width: 45%
+    &__second-team
+        height: 12rem
+        width: 45%
+    &__time
+        display: flex
+        flex-wrap: wrap
+        div
+            font-size: 2.5rem
+            @include respond(tab-land)
+                font-size: 1.5rem
+        div:not(:last-child)
+            margin-right: 2rem
+            @include respond(phoneL)
+                margin-right: 1rem

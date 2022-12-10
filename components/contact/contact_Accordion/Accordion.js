@@ -1,29 +1,27 @@
-
-const Accordion = (props) => {
-    const {title, text, active, setActive} = props;
+const Accordion = props => {
+    const { title, text, active, setActive } = props;
 
     const clickChangeActive = () => {
         if (active === title) {
-            setActive('')
+            setActive("");
         } else {
-            setActive(title)
+            setActive(title);
         }
-    }
+    };
 
     return (
         <>
-            <div className="accordionHeader">
+            <div className='accordionHeader'>
                 <p>{title}</p>
-                <span style={{'cursor': 'pointer'}} onClick={() => clickChangeActive()}>
-                    {active === title ? 'X' : 'III'}
+                <span style={{ cursor: "pointer", padding: "1rem" }} onClick={() => clickChangeActive()}>
+                    {active === title ? "X" : "III"}
                 </span>
             </div>
-
-            <div className={(title === active ? 'show' : '') + ' accordionContent'} >
+            <div className={(title === active ? "show" : "") + " accordionContent"}>
                 <p>{text}</p>
             </div>
         </>
-    )
-}
+    );
+};
 
 export default Accordion;

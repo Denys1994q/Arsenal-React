@@ -23,12 +23,12 @@ const Basket = () => {
     return (
         <>
             <div onClick={() => clickOpenBasket()} className='basket'>
-            <FontAwesomeIcon
+                <FontAwesomeIcon
                     icon={faShoppingBasket}
                     className='fa fa-shopping-cart fa-lg'
                     style={{ color: "white" }}></FontAwesomeIcon>
-                <span className='basket-quantity'>{amount}</span>
-                <div style={{ display: message ? "block" : "none" }} className='basket-message'>
+                <span className='basket__quantity'>{amount}</span>
+                <div style={{ display: message ? "block" : "none" }} className='basket__message'>
                     Shirt was added to the basket
                 </div>
             </div>

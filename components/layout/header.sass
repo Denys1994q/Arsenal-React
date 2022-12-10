@@ -1,0 +1,142 @@
+.header
+    position: relative
+    background-color: $mainRedColor
+    margin-bottom: 1rem
+    z-index: 4
+    @include respond(tab-port)
+        margin-bottom: 1rem
+    &__top
+        display: flex
+        justify-content: flex-end
+        border-bottom: .1px solid #ffffffb3
+        padding-top: 1.2rem
+        @include respond(phoneL)
+            display: none
+    &__topList
+        display: flex
+        font-size: 1.1rem
+        color: white
+        text-transform: lowercase
+        margin: .5rem 0 1rem 0
+        padding-right: 2rem
+        li:not(:last-child)
+            margin-right: 2rem
+    &__bottom
+        display: flex
+        justify-content: space-between
+        padding: 1rem .5rem
+        @include respond(tab-port)
+            justify-content: center
+    &__bottomList
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        padding: 1rem
+        color: white
+        margin: 0
+        @include respond(tab-land)
+            flex-grow: 1
+        @include respond(tab-port)
+            justify-content: center
+            margin-top: 5rem
+            gap: 2rem
+            padding: 0
+            margin-bottom: 2rem
+        @include respond(phoneL)
+            flex-direction: column-reverse
+            align-items: center
+            li
+                font-size: 1.4rem
+                text-transform: uppercase
+        & li
+            font-size: 1.6rem
+            text-transform: uppercase
+            cursor: pointer
+            transition: .1s ease-in-out
+            &:hover
+                transform: scale(1.1)
+            &:not(:last-child)
+                margin-right: 5rem
+                @include respond(tab-port)
+                    margin-right: 2rem
+                @include respond(phoneL)
+                    margin-right: 0
+    &__logo
+        position: absolute
+        top: 1rem
+        left: 1rem
+        z-index: 20
+        @include respond(tab-land)
+            width: 4rem
+            top: -4rem
+    &__brends
+        display: flex
+        align-items: center
+        @include respond(tab-port)
+            display: none
+
+// tab (players)
+.players
+    display: block
+    width: 100%
+    justify-content: space-between
+    background: white
+    z-index: 10
+    padding: 1rem
+    padding-top: 2rem
+    border-bottom: 5px solid red
+    @include respond(tab-port)
+        font-size: 1.4rem
+        padding: 0
+    @include respond(phoneL)
+        flex-direction: column
+        align-items: center
+        padding-top: 1rem
+    &__itemWrapper
+        margin-left: 7%
+        text-align: left
+        padding-right: 2rem
+        border-right: 1px solid #af1311
+        width: 25%
+        @include respond(tab-port)
+            margin-left: 1%
+            padding-right: 0
+        @include respond(phoneL)
+            width: auto
+            padding: 0
+            margin: 0
+            border: 0
+            text-align: center
+    &__itemText
+        &:hover
+            color: red
+            font-weight: bold
+        & span
+            color: #e73330
+            font-weight: bold
+            margin-right: 1rem
+        p
+            font-weight: bold
+            margin-bottom: 3rem
+            @include respond(phoneL)
+                margin-bottom: 1rem
+
+// clicked link
+.activeLink
+    padding: .5rem
+    border: 1px solid white
+
+// burger 
+.burgerMenu
+    display: none
+    width: 100%
+    z-index: 1
+    position: absolute
+    top: 4.4rem
+    background: $mainRedColor
+    text-align: center
+    padding: .2rem
+    @include respond(tab-port)
+        display: block
+    @include respond(phoneL)
+        top: -5px

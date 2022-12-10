@@ -7,7 +7,7 @@ import { fetchWeatherForecast } from "../../main/mainPageSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 
-const Weather = () => {
+const Weather = ({ city }) => {
     const dispatch = useDispatch();
 
     const weather = useSelector(state => state.mainPageSlice.weather);
@@ -19,7 +19,7 @@ const Weather = () => {
     const temp = weather.weather ? weather.main.temp : null;
 
     useEffect(() => {
-        dispatch(fetchWeatherForecast());
+        dispatch(fetchWeatherForecast(city));
     }, []);
 
     const getType = () => {
@@ -48,17 +48,15 @@ const Weather = () => {
     }, [typeOfWeather]);
 
     return (
-        <div className='weather-card'>
-            <div className='weather-card-info'>
-                <Image className='weather-card-info-photo' src={weatherImg} />
-                <div className='weather-card-info-title'>Weather in London</div>
-                <br />
-                <div className='weather-card-info-month'>{month}</div>
-                <br />
-                <div className='weather-card-info-deg'>{temp} C</div>
-                <br />
-                <div className='weather-card-info-rain'>{typeOfWeather}</div>
-            </div>
+        <div className='weatherСard'>
+            <Image className='weatherСard__photo' src={weatherImg} alt='weatherCard__photo' />
+            <div className='weatherСard__item'>Weather in {city}</div>
+            <br />
+            <div className='weatherСard__item'>{month}</div>
+            <br />
+            <div className='weatherСard__item'>{temp} C</div>
+            <br />
+            <div className='weatherСard__item'>{typeOfWeather}</div>
         </div>
     );
 };

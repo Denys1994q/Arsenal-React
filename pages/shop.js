@@ -78,7 +78,7 @@ const Shop = () => {
                         color: active === 1 || active === 3 ? "#464058" : "white",
                         display: hideInputs ? "none" : "block",
                     }}
-                    className='shop-shirt-title'>
+                    className='shirt__playerName'>
                     {name}
                 </p>
                 <p
@@ -87,7 +87,7 @@ const Shop = () => {
                         color: active === 1 || active === 3 ? "#464058" : "white",
                         display: hideInputs ? "none" : "block",
                     }}
-                    className='shop-shirt-number'>
+                    className='shirt__number'>
                     {number}
                 </p>
                 <input
@@ -95,14 +95,14 @@ const Shop = () => {
                     value={name}
                     onChange={e => changeName(e)}
                     placeholder='name'
-                    className='shop-shirt-inpText shop-shirt-inpText-1 browser-default'
+                    className='shirt__inpText shirt__inpText-playerName browser-default'
                 />
                 <input
                     type='number'
                     value={number}
                     onChange={e => changeNumber(e)}
                     placeholder='number'
-                    className='shop-shirt-inpText shop-shirt-inpText-2 browser-default'
+                    className='shirt__inpText shirt__inpText-number browser-default'
                 />
             </>
         ) : null;
@@ -125,11 +125,7 @@ const Shop = () => {
         return (
             <li
                 onClick={() => setActiveSize(i)}
-                className={
-                    i === activeSize
-                        ? "shop-shirt-sizes-list-item shop-shirt-sizes-list-item-active"
-                        : "shop-shirt-sizes-list-item"
-                }>
+                className={i === activeSize ? "sizes__list-item sizes__list-item-active" : "sizes__list-item"}>
                 <div>{item}</div>
             </li>
         );
@@ -149,15 +145,7 @@ const Shop = () => {
     }, [amount]);
 
     const [makeShirtSmaller, setMakeShirtSmaller] = useState(false);
-    // const s = () => {
-    //     console.log(window.innerWidth);
-    //     if (window.innerWidth < 500) {
-    //         setMakeShirtSmaller(true);
-    //         console.log(1);
-    //     }
-    // };
     useEffect(() => {
-        // window.addEventListener("resize", s);
         if (window.innerWidth < 650) {
             setMakeShirtSmaller(true);
         }
@@ -165,10 +153,10 @@ const Shop = () => {
 
     return (
         <div className='shop'>
-            <div className='shop-shirt'>
-                <div className='shop-shirt-left'>
-                    <div className='shop-shirt-left-title'>{shirts[active].name}</div>
-                    <div onClick={() => setActiveSmall(0)} className='shop-shirt-left-item'>
+            <div className='shirt'>
+                <div className='shirt__smallPicsWrapper'>
+                    <div className='shirt__title'>{shirts[active].name}</div>
+                    <div onClick={() => setActiveSmall(0)} className='shirt__smallPic'>
                         <Image
                             className={activeSmall === 0 ? "activeImg" : ""}
                             src={shirts[active].smallImgs[0]}
@@ -177,7 +165,7 @@ const Shop = () => {
                             height={150}
                         />
                     </div>
-                    <div onClick={() => setActiveSmall(1)} className='shop-shirt-left-item'>
+                    <div onClick={() => setActiveSmall(1)} className='shirt__smallPic'>
                         <Image
                             className={activeSmall === 1 ? "activeImg" : ""}
                             src={shirts[active].smallImgs[1]}
@@ -186,7 +174,7 @@ const Shop = () => {
                             height={150}
                         />
                     </div>
-                    <div onClick={() => setActiveSmall(2)} className='shop-shirt-left-item'>
+                    <div onClick={() => setActiveSmall(2)} className='shirt__smallPic'>
                         <Image
                             className={activeSmall === 2 ? "activeImg" : ""}
                             src={shirts[active].smallImgs[2]}
@@ -196,8 +184,8 @@ const Shop = () => {
                         />
                     </div>
                 </div>
-                <div className='shop-shirt-right'>
-                    <div className='shop-shirt-right-img' onMouseLeave={() => setHideInputs(false)}>
+                <div className='shirt__bigPicWrapper'>
+                    <div className='shirt__bigPic' onMouseLeave={() => setHideInputs(false)}>
                         {makeShirtSmaller ? (
                             <img src={shirts[active].smallImgs[activeSmall]} />
                         ) : (
@@ -236,15 +224,15 @@ const Shop = () => {
                     </div>
                 </div>
             </div>
-            <div className='shop-shirt-sizes'>
-                <ul className='shop-shirt-sizes-list'>{contentSizes}</ul>
+            <div className='sizes'>
+                <ul className='sizes__list'>{contentSizes}</ul>
             </div>
-            <div className='shop-shirt-price'>
+            <div className='price'>
                 <div className='shopDesc'>
                     <ShopDesc />
                 </div>
-                <div className='shop-shirt-price-item'>£{shirts[active].price}.00</div>
-                <button onClick={() => clickAddToBasket()} className='shop-shirt-price-btn btn'>
+                <div className='price__item'>£{shirts[active].price}.00</div>
+                <button onClick={() => clickAddToBasket()} className='price__btn btn'>
                     Add to the basket
                 </button>
             </div>

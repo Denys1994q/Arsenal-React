@@ -14,136 +14,100 @@ import Squad from "../squad/Squad";
 
 const Header = () => {
     const { asPath } = useRouter();
-
-    const [showBasket, setShowBasket] = useState(false);
+    // показує блок з гравцями
     const [showTab, setShowTab] = useState(false);
+    // показує бургер меню
     const [clickedBurger, setClickedBurger] = useState(true);
 
+    const links = [
+        { to: "team", title: "Create team" },
+        { to: "cinema", title: "Cinema" },
+        { to: "shop", title: "Shop" },
+        { to: "contacts", title: "Contact us" },
+    ];
+
+    const showLinks = links.map(item => {
+        return (
+            <li>
+                <Link
+                    href={`/${item.to}`}
+                    onClick={() => closeMenu()}
+                    className={asPath === `/${item.to}` ? "activeLink" : ""}>
+                    {item.title}
+                </Link>
+            </li>
+        );
+    });
+
     useEffect(() => {
-        if (window.innerWidth < 635) {
+        if (window.innerWidth < 935) {
             setClickedBurger(false);
         }
     }, []);
-
-    const showBasketContent = showBasket ? (
-        <div className='header__wrapper_brends'>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    ) : (
-        <div className='header__wrapper_brends'>
-            <Image src={adidas} width={60} alt='' />
-            <Image src={emirates} width={60} alt='' />
-            <Image src={visitRwanda} width={60} alt='' />
-        </div>
-    );
-
+    // відкривати закривати бургер меню
     const toggleBurgerMenu = () => {
         setClickedBurger(old => !old);
-        setShowTab(false);
     };
 
     const toggleTab = () => {
         setShowTab(old => !old);
     };
-
+    // закрити меню після кліку на його пункти
     const closeMenu = () => {
-        if (window.innerWidth < 635) {
+        if (window.innerWidth < 935) {
             setClickedBurger(false);
         }
+        // закривати блок з гравцями при закритті меню
+        setShowTab(false);
     };
 
     return (
         <div>
-            <div className='header-container'>
-                <header className='header'>
-                    <div className='header__wrapper_top'>
-                        <ul className='header__wrapper_top-list'>
-                            <li>
-                                <a href='https://www.facebook.com/denis.rybachok' target='_blank'>
-                                    Facebook
-                                </a>
-                            </li>
-                            <li>
-                                <a href='https://github.com/Denys1994q' target='_blank'>
-                                    GitHub
-                                </a>
-                            </li>
-                            <li>
-                                <a href='https://t.me/drybachok' target='_blank'>
-                                    Telegram
-                                </a>
-                            </li>
-                            <li>
-                                <a href='#' target='_blank'>
-                                    0975300083
-                                </a>
-                            </li>
-                            <li>
-                                <a href='#' target='_blank'>
-                                    drybachok@gmail.com
-                                </a>
-                            </li>
-                        </ul>
+            <header className='header'>
+                <div className='header__top'>
+                    <ul className='header__topList'>
+                        <li>
+                            <a href='https://www.facebook.com/denis.rybachok' target='_blank'>
+                                Facebook
+                            </a>
+                        </li>
+                        <li>
+                            <a href='https://github.com/Denys1994q' target='_blank'>
+                                GitHub
+                            </a>
+                        </li>
+                        <li>
+                            <a href='https://t.me/drybachok' target='_blank'>
+                                Telegram
+                            </a>
+                        </li>
+                        <li>
+                            <a href='#' target='_blank'>
+                                0975300083
+                            </a>
+                        </li>
+                        <li>
+                            <a href='#' target='_blank'>
+                                drybachok@gmail.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div className='header__bottom'>
+                    <Link className='header__logoWrapper' href='/' onClick={() => closeMenu()}>
+                        <Image className='header__logo' src={logo} width={110} alt='' />
+                    </Link>
+                    <ul className='header__bottomList' style={{ display: clickedBurger ? "flex" : "none" }}>
+                        <li onClick={() => toggleTab()} className='header-squad'>
+                            Squad
+                        </li>
+                        {showLinks}
+                    </ul>
+                    <div className='header__brends'>
+                        <Image src={adidas} width={50} alt='' />
+                        <Image src={emirates} width={50} alt='' />
+                        <Image src={visitRwanda} width={50} alt='' />
                     </div>
-                    <div style={{ display: clickedBurger ? "flex" : "none" }} className='header__wrapper'>
-                        <div className='header__wrapper_Image'>
-                            <Link href='/' onClick={() => closeMenu()}>
-                                <Image className='header__logo' src={logo} width={110} alt='' />
-                            </Link>
-                        </div>
-                        <div className='header__wrapper_list'>
-                            <ul className='header__box_list'>
-                                <li onClick={() => toggleTab()} className='header-squad'>
-                                    <div>Squad</div>
-                                    <div
-                                        className={
-                                            showTab ? "header-squad-bef header-squad-bef-active" : "header-squad-bef"
-                                        }></div>
-                                    <div
-                                        style={{ display: showTab ? "block" : "none" }}
-                                        className='header-squad-fake'></div>
-                                </li>
-                                <li>
-                                    <Link
-                                        href='/team'
-                                        onClick={() => closeMenu()}
-                                        className={asPath === "/team" ? "activeLink" : ""}>
-                                        Create team
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href='/cinema'
-                                        onClick={() => closeMenu()}
-                                        className={asPath === "/cinema" ? "activeLink" : ""}>
-                                        Cinema
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href='/shop'
-                                        onClick={() => closeMenu()}
-                                        className={asPath === "/shop" ? "activeLink" : ""}>
-                                        Shop
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href='/contacts'
-                                        onClick={() => closeMenu()}
-                                        className={asPath === "/contacts" ? "activeLink" : ""}>
-                                        Contact us
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                        {showBasketContent}
-                    </div>
-                </header>
-                <div style={{ display: showTab ? "flex" : "none" }} className='header-tab'>
-                    <Squad setShowTab={setShowTab} setClickedBurger={setClickedBurger} />
                 </div>
                 <div className='burgerMenu'>
                     <FontAwesomeIcon
@@ -152,6 +116,9 @@ const Header = () => {
                         onClick={() => toggleBurgerMenu()}
                         style={{ color: "white" }}></FontAwesomeIcon>
                 </div>
+            </header>
+            <div style={{ display: showTab ? "flex" : "none" }} className='players'>
+                <Squad setShowTab={setShowTab} setClickedBurger={setClickedBurger} />
             </div>
         </div>
     );
