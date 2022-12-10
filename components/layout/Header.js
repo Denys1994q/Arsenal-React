@@ -56,9 +56,9 @@ const Header = () => {
     const closeMenu = () => {
         if (window.innerWidth < 935) {
             setClickedBurger(false);
+            // закривати блок з гравцями при закритті меню
+            setShowTab(false);
         }
-        // закривати блок з гравцями при закритті меню
-        setShowTab(false);
     };
 
     return (

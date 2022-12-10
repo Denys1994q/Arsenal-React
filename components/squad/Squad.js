@@ -8,11 +8,14 @@ const Squad = ({ setShowTab, setClickedBurger }) => {
 
         const closeTabAndMenu = () => {
             setShowTab(false);
-            setClickedBurger(false);
+            if (window.innerWidth < 935) {
+                setClickedBurger(false);
+            }
         };
+
         const showPlayers = playersOnPosition.map(item => {
             return (
-                <li key={item.squadNumber} className='players__itemText'>
+                <li key={item.squadNumber} onClick={closeTabAndMenu} className='players__itemText'>
                     <Link href={`/squad/${item.squadNumber}`}>
                         <span>{item.squadNumber}</span>
                         {item.name}
