@@ -6,12 +6,15 @@
     @include respond(tab-land)
         justify-content: center
         margin-bottom: 2rem
+    @include respond(phoneL)
+        margin-top: 1rem
 // футболка 
 .shirt
     display: flex
     flex-wrap: wrap
     position: relative
     gap: 5rem
+    z-index: 1
     @include respond(phoneL)
         gap: 0
     &__smallPicsWrapper

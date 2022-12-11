@@ -18,6 +18,8 @@ const Header = () => {
     const [showTab, setShowTab] = useState(false);
     // показує бургер меню
     const [clickedBurger, setClickedBurger] = useState(true);
+    // таб для мобільних (по кліку, а не ховері)
+    const [mobileTab, setMobileTab] = useState(false);
 
     const links = [
         { to: "team", title: "Create team" },
@@ -42,6 +44,7 @@ const Header = () => {
     useEffect(() => {
         if (window.innerWidth < 935) {
             setClickedBurger(false);
+            setMobileTab(true);
         }
     }, []);
     // відкривати закривати бургер меню
@@ -63,6 +66,10 @@ const Header = () => {
             setShowTab(false);
         }
     };
+
+    // const closeTabOnMouseMove = e => {
+    //     console.log(e.target.className);
+    // };
 
     return (
         <div>
@@ -96,14 +103,21 @@ const Header = () => {
                         </li>
                     </ul>
                 </div>
-                <div className='header__bottom'>
+                <div className='header__bottom' style={{ display: clickedBurger ? "flex" : "none" }}>
                     <Link className='header__logoWrapper' href='/' onClick={() => closeMenu()}>
                         <Image className='header__logo' src={logo} width={110} alt='' />
                     </Link>
-                    <ul className='header__bottomList' style={{ display: clickedBurger ? "flex" : "none" }}>
-                        <li onClick={() => toggleTab()} className='header-squad'>
-                            Squad
-                        </li>
+                    <ul className='header__bottomList'>
+                        {mobileTab ? (
+                            <li onClick={() => toggleTab()} className='header-squad'>
+                                Squad
+                            </li>
+                        ) : (
+                            <li onMouseEnter={() => setShowTab(true)} className='header-squad'>
+                                Squad
+                            </li>
+                        )}
+
                         {showLinks}
                     </ul>
                     <div className='header__brends'>
@@ -120,7 +134,10 @@ const Header = () => {
                         style={{ color: "white" }}></FontAwesomeIcon>
                 </div>
             </header>
-            <div style={{ display: showTab ? "flex" : "none" }} className='players'>
+            <div
+                style={{ display: showTab ? "flex" : "none" }}
+                className='players'
+                onMouseLeave={() => setShowTab(false)}>
                 <Squad setShowTab={setShowTab} setClickedBurger={setClickedBurger} />
             </div>
         </div>

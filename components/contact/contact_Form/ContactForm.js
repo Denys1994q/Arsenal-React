@@ -101,7 +101,7 @@ const ContactForm = () => {
                     placeholder='Name'
                     value={nameValue}
                     onChange={e => checkEmpty("name", e)}
-                    style={{ border: focusEmptyName ? "2px solid #bb1f1f" : "1px solid #837e7e" }}
+                    style={{ border: focusEmptyName ? "2px solid #bb1f1f" : "1px solid #dddddd" }}
                     className='contactForm__input browser-default'
                 />
                 <input
@@ -109,7 +109,7 @@ const ContactForm = () => {
                     placeholder='Email'
                     value={mailValue}
                     onChange={e => checkEmpty("email", e)}
-                    style={{ border: focusEmptyEmail ? "2px solid #bb1f1f" : "1px solid #837e7e" }}
+                    style={{ border: focusEmptyEmail ? "2px solid #bb1f1f" : "1px solid #dddddd" }}
                     className='contactForm__input browser-default'
                 />
                 <input
@@ -118,13 +118,13 @@ const ContactForm = () => {
                     className='contactForm__input browser-default'
                     value={numberValue}
                     onChange={e => checkEmpty("number", e)}
-                    style={{ border: focusEmptyNumber ? "2px solid #bb1f1f" : "1px solid #837e7e" }}
+                    style={{ border: focusEmptyNumber ? "2px solid #bb1f1f" : "1px solid #dddddd" }}
                 />
                 <select
                     value={selectValue}
                     onChange={e => checkEmpty("select", e)}
                     className='contactForm__select browser-default'
-                    style={{ border: focusEmptySelect ? "2px solid #bb1f1f" : "1px solid #837e7e" }}>
+                    style={{ border: focusEmptySelect ? "2px solid #bb1f1f" : "1px solid #dddddd" }}>
                     <option value=''>Select Subject</option>
                     <option value='amend/cancel'>I need to amend/cancel my order</option>
                     <option value='damaged/faulty'>I have a damaged/faulty item</option>
