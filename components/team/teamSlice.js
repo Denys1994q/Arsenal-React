@@ -3,6 +3,17 @@ import emptyCard from "../../public/imgs/team-card-hulk.jpg";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { useHttp } from "../../hooks/http.hook";
 
+const getApiHash = require("marvel-api-hash-generator").getApiHash;
+const timeStamp = Date.now();
+const privateKey = "edb491d6bb2a552934bac4644778eb31c0ed8e11";
+const publicKey = "d958623270bfcc1cdb0952691b682b77";
+const hashValue = getApiHash(timeStamp, privateKey, publicKey);
+
+// const requestConstantCharacters = 'https://gateway.marvel.com/v1/public/characters?';
+// const exampleUrl = `${requestConstantCharacters}ts=${timeStamp}&apikey=${publicKey}&hash=${hashValue}`;
+// // https://gateway.marvel.com/v1/public/characters?ts=1&apikey=<public-key>&hash=09fe991c34996e64c0424e446f27c9f0
+// console.log(exampleUrl);
+
 let heroesArr = [];
 const positionArr = [
     "Goalkeeper",
@@ -41,8 +52,10 @@ const initialState = {
 export const fetchHero = createAsyncThunk("team/fetchHero", () => {
     const { request } = useHttp();
     const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
+    // md5(ts+privateKey+publicKey)
+    // const timeStamp = Date.now();
     return request(
-        `https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=d958623270bfcc1cdb0952691b682b77`,
+        `https://gateway.marvel.com:443/v1/public/characters/${id}?ts=${timeStamp}&apikey=d958623270bfcc1cdb0952691b682b77&hash=${hashValue}`,
         "GET",
         null,
         {}
