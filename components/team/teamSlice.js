@@ -4,7 +4,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { useHttp } from "../../hooks/http.hook";
 
 const getApiHash = require("marvel-api-hash-generator").getApiHash;
-const timeStamp = Date.now();
+// const timeStamp = Date.now();
+const timeStamp = 1;
 const privateKey = "edb491d6bb2a552934bac4644778eb31c0ed8e11";
 const publicKey = "d958623270bfcc1cdb0952691b682b77";
 const hashValue = getApiHash(timeStamp, privateKey, publicKey);
