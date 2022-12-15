@@ -1,0 +1,56 @@
+.cinemaSearch
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 30rem
+    z-index: 2
+    @include respond(phoneL)
+        height: auto
+        padding: 2rem
+    &__input
+        width: 25%
+        height: 5rem
+        margin: 0 auto
+        position: relative
+        @include respond(tab-land)
+            width: 40%
+        @include respond(tab-port)
+            width: 50%
+        @include respond(phoneL)
+            width: 60%
+        @include respond(phoneM)
+            width: 90%
+        input
+            background: #f1f1f1
+            border-radius: 5px 5px 5px 5px
+            color: #424242
+            border: none
+            width: 100%
+            height: 100%
+            padding: 1rem
+            @include respond(phoneL)
+                border: 1px solid #424242
+            &:focus
+                outline-style: none
+        &:focus::placeholder
+            color: white
+    &__logo
+        position: absolute
+        top: 20%
+        right: 4%
+        font-size: 1.8rem
+        cursor: pointer
+        padding: .5rem .2rem .5rem .5rem
+        color: #424242
+    &__status
+        color: #fff
+    &__video
+        position: absolute
+        top: -16%
+        left: 0
+        width: 100%
+        height: 121%
+        opacity: 1
+        object-fit: cover
+        z-index: -1

@@ -12,10 +12,10 @@ export const getStaticProps = async () => {
 
 const Cinema = ({ cards }) => {
     return (
-        <div className='cinema'>
+        <section className='cinema'>
             <Search />
             <Movies preLoadedMovies={cards.Search} />
-        </div>
+        </section>
     );
 };
 

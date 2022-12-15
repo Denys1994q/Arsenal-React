@@ -1,10 +1,7 @@
 .header
     position: relative
     background-color: $mainRedColor
-    margin-bottom: 1rem
     z-index: 4
-    @include respond(tab-port)
-        margin-bottom: 1rem
     &__top
         display: flex
         justify-content: flex-end
@@ -14,11 +11,25 @@
             display: none
     &__topList
         display: flex
-        font-size: 1.1rem
+        font-size: 1.2rem
         color: white
         text-transform: lowercase
         margin: .5rem 0 1rem 0
         padding-right: 2rem
+        li a
+            position: relative
+            &:before
+                content: ''
+                position: absolute
+                bottom: -5px
+                right: 0
+                width: 0%
+                height: 2px
+                background-color: white
+                transition: .5s
+            &:hover:before
+                width: 100%
+                left: 0
         li:not(:last-child)
             margin-right: 2rem
     &__bottom
@@ -87,12 +98,13 @@
     width: 99%
     justify-content: space-between
     background: white
-    z-index: 4
-    padding: 1rem
+    z-index: 3
+    padding: 2rem 1rem 1rem 1rem
     border-bottom: 5px solid red
     @include respond(tab-port)
         padding: 0
         top: 17rem
+        z-index: 6
     @include respond(phoneL)
         top: 29rem
         flex-direction: column
@@ -141,7 +153,6 @@
     width: 100%
     z-index: 1
     background: $mainRedColor
-    // background: green
     text-align: center
     padding: 1.6rem
     position: relative

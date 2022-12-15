@@ -26,30 +26,29 @@ const Search = () => {
     }, []);
 
     return (
-        <div className='movies-search-inpWrapper'>
+        <div className='cinemaSearch'>
             {!hideVideoOnMobile ? (
-                <video className='video' autoPlay muted loop>
+                <video className='cinemaSearch__video' autoPlay muted loop>
                     <source
                         src={require("../../../public/imgs/Frustrated fans watching a football game.mp4")}
                         type='video/mp4'
                     />
                 </video>
             ) : null}
-            <div className='movies-search-inp'>
+            <div className='cinemaSearch__input'>
                 <input
+                    type='text'
                     value={searchValue}
                     onKeyDown={e => handleKey(e)}
                     onChange={e => setSearchValue(e.target.value)}
-                    type='text'
                     className='browser-default'
                 />
                 <FontAwesomeIcon
                     icon={loading ? faSpinner : faSearch}
-                    className={loading ? "fa fa-spinner fa-spin movies-search-logo" : "movies-search-logo"}
-                    onClick={() => dispatch(fetchMovies(searchValue))}
-                    style={{ color: "white" }}></FontAwesomeIcon>
+                    className={loading ? "fa fa-spinner fa-spin cinemaSearch__logo" : "cinemaSearch__logo"}
+                    onClick={() => dispatch(fetchMovies(searchValue))}></FontAwesomeIcon>
+                {movies.Response === "False" ? <div className='cinemaSearch__status'>movie not found</div> : ""}
             </div>
-            {movies.Response === "False" ? <div className='movies-search-notFound'>movie not found</div> : ""}
         </div>
     );
 };
