@@ -7,12 +7,16 @@ import { fetchWeatherForecast } from "../../main/mainPageSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+
 const Weather = ({ city }) => {
     const dispatch = useDispatch();
 
     const weather = useSelector(state => state.mainPageSlice.weather);
+    const weatherError = useSelector(state => state.mainPageSlice.weatherError);
     const [typeOfWeather, setTypeOfWeather] = useState(null);
-    const [weatherImg, setWeatherImg] = useState(weather_rain);
+    const [weatherImg, setWeatherImg] = useState(null);
 
     const month = new Date().toDateString();
 
@@ -40,6 +44,8 @@ const Weather = ({ city }) => {
                 return setWeatherImg(weather_cloud);
             case "Clear":
                 return setWeatherImg(weather_sunny);
+            default:
+                return null;
         }
     };
 
@@ -47,8 +53,8 @@ const Weather = ({ city }) => {
         getWeatherImg();
     }, [typeOfWeather]);
 
-    return (
-        <div className='weatherСard'>
+    const content = weatherImg ? (
+        <>
             <Image className='weatherСard__photo' src={weatherImg} alt='weatherCard__photo' />
             <div className='weatherСard__item'>Weather in {city}</div>
             <br />
@@ -56,7 +62,15 @@ const Weather = ({ city }) => {
             <br />
             <div className='weatherСard__item'>{temp} C</div>
             <br />
-            <div className='weatherСard__item'>{typeOfWeather}</div>
+            <div className='weatherСard__item'>{typeOfWeather}</div>{" "}
+        </>
+    ) : (
+        <FontAwesomeIcon icon={faSpinner} size='2x' color='red' className='fa fa-spinner fa-spin'></FontAwesomeIcon>
+    );
+
+    return (
+        <div className='weatherСard'>
+            {weatherError ? <div className='weatherСard__error'>Sorry, something goes wrong...</div> : content}
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const Slider = ({imgs}) => {
+const Slider = ({ imgs }) => {
     const imgsArr = imgs;
     const [slide, setSlide] = useState(0);
 
@@ -9,12 +9,12 @@ const Slider = ({imgs}) => {
         setSlide(old => old + 1);
     };
 
-    // useEffect(() => {
-    //     const timer = setInterval(() => {
-    //         slidesAutoStart();
-    //     }, 5000);
-    //     return () => clearInterval(timer);
-    // }, []);
+    useEffect(() => {
+        const timer = setInterval(() => {
+            slidesAutoStart();
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
 
     useEffect(() => {
         if (slide > imgsArr.length - 1) {

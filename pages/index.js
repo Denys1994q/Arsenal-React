@@ -7,6 +7,7 @@ import leicester_logo from "../public/imgs/leicester_logo.png";
 import arsenal_logo from "../public/imgs/logo.svg";
 
 // import Modal from "../common/modal/Modal";
+import Head from "next/head";
 import Slider from "../components/common/slider/Slider";
 import InfoCard from "../components/main/infoCard/InfoCard";
 import Weather from "../components/common/weather/Weather";
@@ -16,6 +17,9 @@ const Main = () => {
 
     return (
         <div className='main'>
+            <Head>
+                <title>Arsenal</title>
+            </Head>
             <Slider imgs={slideImages} />
             <div className='main__right'>
                 <InfoCard homeTeam={arsenal_logo} awayTeam={leicester_logo} dateOfTheMatch='2022-12-26T15:00:00' />

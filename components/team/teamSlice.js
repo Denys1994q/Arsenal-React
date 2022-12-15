@@ -56,7 +56,7 @@ export const fetchHero = createAsyncThunk("team/fetchHero", () => {
     // md5(ts+privateKey+publicKey)
     // const timeStamp = Date.now();
     return request(
-        `https://gateway.marvel.com:443/v1/public/characters/${id}?ts=${timeStamp}&apikey=d958623270bfcc1cdb0952691b682b77&hash=${hashValue}`,
+        `https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=051fe2288253d927a7e0fa96c34fb4e3`,
         "GET",
         null,
         {}
