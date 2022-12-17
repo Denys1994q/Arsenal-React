@@ -1,0 +1,47 @@
+.teamList
+    width: 42rem
+    font-size: 1.4rem
+    // background: url('../../../public/imgs/backArs2.jpg')
+    // background-size: cover
+    // border-bottom: 3px solid red
+    padding: 3rem 1rem 1rem 1rem
+    text-align: center
+    @include respond(phoneL)
+        padding: 1rem 0
+    @include respond(phoneM)
+        width: 32rem
+    &__heading
+        margin-bottom: 2rem
+    &__squad
+    &__item
+        padding: .2rem
+        margin-bottom: .3rem
+        cursor: pointer
+        svg
+            margin-right: 1rem
+        span
+            font-size: 1.2rem
+            display: inline-block
+            background: black
+            color: white
+            text-transform: uppercase
+        &:hover
+            background: white
+            color: black
+            transition: .1s ease-in-out
+            span
+                background: red
+                color: white
+
+    // &-img
+    //     width: 15rem
+    //     margin-left: auto
+    //     img
+    //         width: 100%
+    //     &__text
+    //         height: 45rem
+    //         margin-top: 5rem
+    //         padding-left: 1rem
+    //         // font-size: 1.3rem
+    //         background-size: cover
+    //         filter: drop-shadow(2px 4px 10px rgba(0,0,0,.16))

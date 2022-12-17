@@ -1,9 +1,15 @@
 .skeleton
+    margin-left: 1rem
+    @include respond(phoneM)
+        margin-left: 0
     &__header
+        width: 40rem
         display: grid
         grid-template-columns: 40px auto
         column-gap: 10px
         align-items: center
+        @include respond(phoneM)
+            width: 30rem
 
     &__circle
         width: 40px

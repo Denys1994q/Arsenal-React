@@ -26,16 +26,22 @@ const TeamList = () => {
         setClickedBtnIndex(id => id + 1);
     };
 
+    const sliceName = name => {
+        if (name.length > 20) {
+            return name.slice(0, 20) + "...";
+        } else {
+            return name;
+        }
+    };
+
     const showTeamSquad = heroes.map((item, i) => {
         const style = item.captain ? "fa fa-star red-color" : "fa fa-star black-color";
         return (
-            <li key={item.num}>
+            <li key={item.num} className='teamList__item'>
                 <FontAwesomeIcon icon={faStar} className={style} onClick={() => makeCaptain(i)}></FontAwesomeIcon>
-                {item.position} - <span onClick={() => makeActive(i)}>{heroes[i].name}</span>
+                {item.position} - <span onClick={() => makeActive(i)}>{sliceName(heroes[i].name)}</span>
                 {showHeroBtns && i === clickedBtnIndex ? (
-                    <button
-                        className='btn'
-                        onClick={() => getHero(i)}>
+                    <button className='btn' onClick={() => getHero(i)}>
                         Get random hero
                     </button>
                 ) : null}
@@ -55,7 +61,16 @@ const TeamList = () => {
         dispatch(team_getClikedHeroFromList(i));
     };
 
-    return showTeamSquad;
+    return (
+        <div className='teamList'>
+            <ul className='teamList__heading'>
+                <li>Click on a card and get your random Marvel hero</li>
+                <li>Choose a captain</li>
+                <li>Make 3 substitutions if you need</li>
+            </ul>
+            <ul className='teamList__squad'>{showTeamSquad}</ul>
+        </div>
+    );
 };
 
 export default TeamList;

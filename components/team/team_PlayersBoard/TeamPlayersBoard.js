@@ -29,7 +29,7 @@ const TeamPlayersBoard = () => {
             <div
                 key={item.num}
                 onClick={() => getHero(i)}
-                className={`item item-${i + 1} card-football ${activeCardClazz}`}>
+                className={`teamBoard__item-${i + 1} card-football ${activeCardClazz}`}>
                 <div className='card-football__side card-football__side_front'>
                     <div>
                         <Image className={clazz} src={item.img} alt='hero-image' width={110} height={110} />
@@ -49,7 +49,12 @@ const TeamPlayersBoard = () => {
             </div>
         );
     });
-    return showCardImgs;
+
+    return (
+        <div className='teamBoard'>
+            {showCardImgs}
+        </div>
+    );
 };
 
 export default TeamPlayersBoard;

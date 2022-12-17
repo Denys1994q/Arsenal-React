@@ -1,0 +1,43 @@
+.selectedPlayer
+    width: 40rem
+    position: relative
+    z-index: 5
+    display: flex
+    margin-left: 1rem
+    margin-bottom: 1rem
+    &__img
+        width: 20rem
+        height: 20rem
+        margin-right: 1rem
+        @include respond(phoneM)
+            width: 16rem
+            height: 16rem
+        img
+            width: 20rem
+            height: 20rem
+            object-fit: contain
+            border: 2px solid #fff
+            @include respond(phoneM)
+                width: 16rem
+                height: 16rem
+    &__text
+        width: 60%
+        font-size: 1.2rem
+        color: white
+        @include respond(phoneM)
+            max-width: 32rem
+            margin-right: 0.3rem
+    &__title
+        font-size: 1.6rem
+        font-weight: bold
+        margin-bottom: 2rem
+    &__desc
+        background: red
+        max-height: 13rem
+        overflow-y: auto
+        margin-bottom: 1rem
+        padding: .2rem
+    &__btn
+        margin-right: 1rem
+        @include respond(phoneM)
+            margin-bottom: .5rem

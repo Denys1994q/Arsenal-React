@@ -4,50 +4,30 @@ const TeamPlayerDescription = () => {
     const heroes = useSelector(state => state.teamSlice.heroes);
     const clikedHeroFromList = useSelector(state => state.teamSlice.clikedHeroFromList);
 
-    const contentDescription =
-        heroes[clikedHeroFromList].description === "" ? (
-            <>
-                <div className='char__info-img'>
-                    <img src={heroes[clikedHeroFromList].img} alt='' />
+    return (
+        <div className='selectedPlayer'>
+            <div className='selectedPlayer__img'>
+                <img src={heroes[clikedHeroFromList].img} alt='selectedPlayer' />
+            </div>
+            <div className='selectedPlayer__text'>
+                <div className='selectedPlayer__title'>{heroes[clikedHeroFromList].name}</div>
+                <div className='selectedPlayer__desc'>
+                    {heroes[clikedHeroFromList].description !== ""
+                        ? heroes[clikedHeroFromList].description
+                        : "No description"}
                 </div>
-                <div className='char__info-text'>
-                    <div className='char__info-text-title'>{heroes[clikedHeroFromList].name}</div>
-                    <div>
-                        <p className='char__info-text-desc'>No description for this character</p>
-                        <a className='btn team-btn' href={heroes[clikedHeroFromList].homepage} target='_blank'>
-                            {" "}
-                            homepage{" "}
-                        </a>
-                        <a className='btn team-btn' href={heroes[clikedHeroFromList].wiki} target='_blank'>
-                            {" "}
-                            wiki{" "}
-                        </a>
-                    </div>
-                </div>
-            </>
-        ) : (
-            <>
-                <div className='char__info-img'>
-                    <img src={heroes[clikedHeroFromList].img} alt='' />
-                    <div>
-                        <a className='btn team-btn' href={heroes[clikedHeroFromList].homepage} target='_blank'>
-                            {" "}
-                            homepage{" "}
-                        </a>
-                        <a className='btn team-btn' href={heroes[clikedHeroFromList].wiki} target='_blank'>
-                            {" "}
-                            wiki{" "}
-                        </a>
-                    </div>
-                </div>
-                <div className='char__info-text'>
-                    <div className='char__info-text-title'>{heroes[clikedHeroFromList].name}</div>
-                    <div>{heroes[clikedHeroFromList].description}</div>
-                </div>
-            </>
-        );
-
-    return contentDescription;
+                <a
+                    className='btn team-btn selectedPlayer__btn'
+                    href={heroes[clikedHeroFromList].homepage}
+                    target='_blank'>
+                    homepage
+                </a>
+                <a className='btn team-btn' href={heroes[clikedHeroFromList].wiki} target='_blank'>
+                    wiki
+                </a>
+            </div>
+        </div>
+    );
 };
 
 export default TeamPlayerDescription;

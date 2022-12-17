@@ -1,5 +1,3 @@
-import team_header from "../public/imgs/team-header.jpg";
-
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -12,53 +10,28 @@ import TeamPlayerDescription from "../components/team/team_TeamPlayerDescription
 const Team = () => {
     const clikedHeroFromList = useSelector(state => state.teamSlice.clikedHeroFromList);
 
-    const [hideTeamBoard, setHideTeamBoard] = useState(false);
-    useEffect(() => {
-        if (window.innerWidth < 835) {
-            setHideTeamBoard(true);
-        }
-    }, []);
-
-    const content =
-        clikedHeroFromList || clikedHeroFromList === 0 ? (
-            <div className='char__info-box'>
-                <TeamPlayerDescription />
-            </div>
-        ) : (
-            <Skeleton />
-        );
+    // const [hideTeamBoard, setHideTeamBoard] = useState(false);
+    // useEffect(() => {
+    //     if (window.innerWidth < 435) {
+    //         setHideTeamBoard(true);
+    //     }
+    // }, []);
 
     return (
-        <>
-            <div className='team'>
-                <div className='team-left'>
-                    <div className='team-left-img'>
-                        <img src={team_header} alt='' />
-                    </div>
-                    <div className='team-left-text'>
-                        <ol>
-                            <li>Click on a card and get your random hero</li>
-                            <li>Choose a captain</li>
-                            <li>Make three substitutions if you need</li>
-                        </ol>
-                        <div className='team-left-squad'>
-                            <ul>
-                                <TeamList />
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div style={{ display: hideTeamBoard ? "none" : "grid" }} className='team-right team-container'>
-                    <TeamPlayersBoard />
-                </div>
-                <div className='team-bottom'>
-                    <div className='char__info'>{content}</div>
-                    <div className='team-bottom-subs'>
-                        <TeamSubs />
-                    </div>
+        <section className='team'>
+            <div className='team__left'>
+                <TeamList />
+            </div>
+            <div className='team__right'>
+                <TeamPlayersBoard />
+            </div>
+            <div className='team__bottom'>
+                {clikedHeroFromList || clikedHeroFromList === 0 ? <TeamPlayerDescription /> : <Skeleton />}
+                <div className='team__subs'>
+                    <TeamSubs />
                 </div>
             </div>
-        </>
+        </section>
     );
 };
 

@@ -132,21 +132,21 @@ const TeamSubs = () => {
         if (i === 0) {
             setLoading1(true);
             fetch(
-                `https://gateway.marvel.com:443/v1/public/characters?name=${searchHero1}&apikey=d958623270bfcc1cdb0952691b682b77`
+                `https://gateway.marvel.com:443/v1/public/characters?name=${searchHero1}&ts=1&apikey=051fe2288253d927a7e0fa96c34fb4e3&hash=a062d7eb32dbb34a5b8d9df7c8b50086`
             )
                 .then(data => data.json())
                 .then(res => getSearchedHeroData(res, i));
         } else if (i === 1) {
             setLoading2(true);
             fetch(
-                `https://gateway.marvel.com:443/v1/public/characters?name=${searchHero2}&apikey=d958623270bfcc1cdb0952691b682b77`
+                `https://gateway.marvel.com:443/v1/public/characters?name=${searchHero2}&ts=1&apikey=051fe2288253d927a7e0fa96c34fb4e3&hash=a062d7eb32dbb34a5b8d9df7c8b50086`
             )
                 .then(data => data.json())
                 .then(res => getSearchedHeroData(res, i));
         } else if (i === 2) {
             setLoading3(true);
             fetch(
-                `https://gateway.marvel.com:443/v1/public/characters?name=${searchHero3}&apikey=d958623270bfcc1cdb0952691b682b77`
+                `https://gateway.marvel.com:443/v1/public/characters?name=${searchHero3}&ts=1&apikey=051fe2288253d927a7e0fa96c34fb4e3&hash=a062d7eb32dbb34a5b8d9df7c8b50086`
             )
                 .then(data => data.json())
                 .then(res => getSearchedHeroData(res, i));
@@ -169,7 +169,7 @@ const TeamSubs = () => {
             heroToSub = heroToSub1.img;
             iconClass =
                 heroToSub1.img !== null && searchedPlayers[0].name !== ""
-                    ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-4x white-color-back"
+                    ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-lg white-color-back"
                     : "team-bottom-subs-imgsBox-middle fas fa-directions fa-2x";
 
             showBtn = heroToSub1.img === null || searchedPlayers[0].name === "" || firstSubMade ? "none" : "flex";
@@ -180,7 +180,7 @@ const TeamSubs = () => {
             heroToSub = heroToSub2.img;
             iconClass =
                 heroToSub2.img !== null && searchedPlayers[1].name !== ""
-                    ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-4x white-color-back"
+                    ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-lg white-color-back"
                     : "team-bottom-subs-imgsBox-middle fas fa-directions fa-2x";
 
             showBtn = heroToSub2.img === null || searchedPlayers[1].name === "" || secondSubMade ? "none" : "flex";
@@ -191,7 +191,7 @@ const TeamSubs = () => {
             heroToSub = heroToSub3.img;
             iconClass =
                 heroToSub3.img !== null && searchedPlayers[2].name !== ""
-                    ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-4x white-color-back"
+                    ? "team-bottom-subs-imgsBox-middle fas fa-directions fa-lg white-color-back"
                     : "team-bottom-subs-imgsBox-middle fas fa-directions fa-2x";
 
             showBtn = heroToSub3.img === null || searchedPlayers[2].name === "" || thirdSubMade ? "none" : "flex";

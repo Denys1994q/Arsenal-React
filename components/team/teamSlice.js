@@ -6,8 +6,8 @@ import { useHttp } from "../../hooks/http.hook";
 const getApiHash = require("marvel-api-hash-generator").getApiHash;
 // const timeStamp = Date.now();
 const timeStamp = 1;
-const privateKey = "edb491d6bb2a552934bac4644778eb31c0ed8e11";
-const publicKey = "d958623270bfcc1cdb0952691b682b77";
+const privateKey = "7db319c2489be0fa691f11152bb9f62816b8dbb1";
+const publicKey = "051fe2288253d927a7e0fa96c34fb4e3";
 const hashValue = getApiHash(timeStamp, privateKey, publicKey);
 
 // const requestConstantCharacters = 'https://gateway.marvel.com/v1/public/characters?';
@@ -53,10 +53,9 @@ const initialState = {
 export const fetchHero = createAsyncThunk("team/fetchHero", () => {
     const { request } = useHttp();
     const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
-    // md5(ts+privateKey+publicKey)
-    // const timeStamp = Date.now();
     return request(
-        `https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=051fe2288253d927a7e0fa96c34fb4e3`,
+        // `https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=051fe2288253d927a7e0fa96c34fb4e3`,
+        `https://gateway.marvel.com:443/v1/public/characters/${id}?ts=1&apikey=051fe2288253d927a7e0fa96c34fb4e3&hash=${hashValue}`,
         "GET",
         null,
         {}
