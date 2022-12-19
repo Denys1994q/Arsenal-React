@@ -28,9 +28,9 @@ const Header = () => {
         { to: "contacts", title: "Contact us" },
     ];
 
-    const showLinks = links.map(item => {
+    const showLinks = links.map((item, index) => {
         return (
-            <li>
+            <li key={index}>
                 <Link
                     href={`/${item.to}`}
                     onClick={() => closeMenu()}
@@ -72,7 +72,7 @@ const Header = () => {
     // };
 
     return (
-        <div>
+        <>
             <header className='header'>
                 <div className='header__top'>
                     <ul className='header__topList'>
@@ -105,7 +105,7 @@ const Header = () => {
                 </div>
                 <div className='header__bottom' style={{ display: clickedBurger ? "flex" : "none" }}>
                     <Link className='header__logoWrapper' href='/' onClick={() => closeMenu()}>
-                        <Image className='header__logo' src={logo} width={110} alt='' />
+                        <Image className='header__logo' src={logo} width={110} alt='arsenal-logo' />
                     </Link>
                     <ul className='header__bottomList'>
                         {mobileTab ? (
@@ -121,9 +121,9 @@ const Header = () => {
                         {showLinks}
                     </ul>
                     <div className='header__brends'>
-                        <Image src={adidas} width={50} alt='' />
-                        <Image src={emirates} width={50} alt='' />
-                        <Image src={visitRwanda} width={50} alt='' />
+                        <Image src={adidas} width={50} alt='adidas-logo' />
+                        <Image src={emirates} width={50} alt='emirates-logo' />
+                        <Image src={visitRwanda} width={50} alt='visitRwanda-logo' />
                     </div>
                 </div>
                 <div className='burgerMenu'>
@@ -140,7 +140,7 @@ const Header = () => {
                 onMouseLeave={() => setShowTab(false)}>
                 <Squad setShowTab={setShowTab} setClickedBurger={setClickedBurger} />
             </div>
-        </div>
+        </>
     );
 };
 

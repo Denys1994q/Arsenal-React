@@ -13,9 +13,16 @@ const Search = () => {
     const [hideVideoOnMobile, setHideVideoOnMobile] = useState(false);
     const [searchValue, setSearchValue] = useState("");
 
+    const getMovies = () => {
+        if (searchValue) {
+            dispatch(fetchMovies(searchValue));
+            setSearchValue("");
+        }
+    };
+
     const handleKey = e => {
         if (e.key === "Enter") {
-            dispatch(fetchMovies(searchValue));
+            getMovies();
         }
     };
 
@@ -46,7 +53,7 @@ const Search = () => {
                 <FontAwesomeIcon
                     icon={loading ? faSpinner : faSearch}
                     className={loading ? "fa fa-spinner fa-spin cinemaSearch__logo" : "cinemaSearch__logo"}
-                    onClick={() => dispatch(fetchMovies(searchValue))}></FontAwesomeIcon>
+                    onClick={() => getMovies()}></FontAwesomeIcon>
                 {movies.Response === "False" ? <div className='cinemaSearch__status'>movie not found</div> : ""}
             </div>
         </div>

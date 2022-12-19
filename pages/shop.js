@@ -152,7 +152,7 @@ const Shop = () => {
     }, []);
 
     return (
-        <div className='shop'>
+        <section className='shop'>
             <div className='shirt'>
                 <div className='shirt__smallPicsWrapper'>
                     <div className='shirt__title'>{shirts[active].name}</div>
@@ -237,7 +237,7 @@ const Shop = () => {
                 </button>
             </div>
             <Basket />
-        </div>
+        </section>
     );
 };
 

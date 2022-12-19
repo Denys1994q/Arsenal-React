@@ -6,7 +6,7 @@ const Contact = () => {
     const [active, setActive] = useState("");
 
     return (
-        <div className='contact'>
+        <section className='contact'>
             <h2 className='contact__title'>Contact us</h2>
             <p className='contact__text'>
                 Below are options for contacting us. If you have a general query it might be worth checking out our top
@@ -50,7 +50,7 @@ const Contact = () => {
                     <ContactForm />
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
