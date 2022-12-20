@@ -1,5 +1,5 @@
-import Search from "../components/cinema/cinema_Search/Search";
-import Movies from "../components/cinema/cinema_MoviesList/Movies";
+import Search from "../components/pages/cinema/cinema_Search/Search";
+import Movies from "../components/pages/cinema/cinema_MoviesList/Movies";
 
 // export const getStaticProps = async () => {
 //     const res = await fetch("https://www.omdbapi.com/?apikey=e8ceae38&s=arsenal");
@@ -15,7 +15,7 @@ const Cinema = ({ cards }) => {
         <section className='cinema'>
             <Search />
             {/* <Movies preLoadedMovies={cards.Search} /> */}
-            <Movies/>
+            <Movies />
         </section>
     );
 };

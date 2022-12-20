@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import mainPageSlice from "../components/main/mainPageSlice";
-import cinemaSlice from "../components/cinema/cinemaSlice";
-import teamSlice from "../components/team/teamSlice";
-import shopSlice from "../components/shop/shopSlice";
+import mainPageSlice from "../components/pages/main/mainPageSlice";
+import cinemaSlice from "../components/pages/cinema/cinemaSlice";
+import teamSlice from "../components/pages/team/teamSlice";
+import shopSlice from "../components/pages/shop/shopSlice";
 
 import { createWrapper, HYDRATE } from "next-redux-wrapper";
 // рендеринг на сервері - getServerSideProps. Сторінка з усіма даними створюється на сервері
@@ -23,14 +23,6 @@ const store = configureStore({
 const makeStore = () => store;
 
 export const wrapper = createWrapper(makeStore);
-
-
-
-
-
-
-
-
 
 // import { configureStore } from "@reduxjs/toolkit";
 

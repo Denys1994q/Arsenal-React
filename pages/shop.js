@@ -1,4 +1,4 @@
-import { shirts } from "../components/shop/data";
+import { shirts } from "../components/pages/shop/data";
 // хуки
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,15 +7,15 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 // компоненти
-import Basket from "../components/shop/shop_Basket/Basket";
-import ShopDesc from "../components/shop/shop_Description/ShopDesc";
+import Basket from "../components/pages/shop/shop_Basket/Basket";
+import ShopDesc from "../components/pages/shop/shop_Description/ShopDesc";
 
 import {
     shop_addToOrder,
     shop_plusAmount,
     shop_showMessage,
     shop_showThanksMessage,
-} from "../components/shop/shopSlice";
+} from "../components/pages/shop/shopSlice";
 
 const Shop = () => {
     const dispatch = useDispatch();
@@ -124,6 +124,7 @@ const Shop = () => {
     const contentSizes = shirts[active].sizes.map((item, i) => {
         return (
             <li
+                key={i}
                 onClick={() => setActiveSize(i)}
                 className={i === activeSize ? "sizes__list-item sizes__list-item-active" : "sizes__list-item"}>
                 <div>{item}</div>

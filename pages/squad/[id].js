@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { players } from "../../components/squad/data";
+import { players } from "../../components/pages/squad/data";
 
 const Player = () => {
     const router = useRouter();
@@ -9,22 +9,34 @@ const Player = () => {
 
     const [selectedPlayer, setSelectedPlayer] = useState(null);
 
-    const findPlayer = () => {
-        const w = players.length > 0 ? players.filter(it => it.squadNumber === +id) : null;
-        setSelectedPlayer(w);
+    const findPlayer = idFromUrl => {
+        const playerInfo = players.length > 0 ? players.filter(it => it.squadNumber === +idFromUrl) : null;
+        setSelectedPlayer(playerInfo);
     };
 
     useEffect(() => {
-        findPlayer();
+        findPlayer(id);
     }, [id]);
+
+    const getIdFromUlr = url => {
+        const splitedArr = url.split("/");
+        const IdFromUlr = splitedArr[splitedArr.length - 1];
+        findPlayer(IdFromUlr);
+    };
+
+    useEffect(() => {
+        if (!id) {
+            getIdFromUlr(window.location.href);
+        }
+    }, []);
 
     return (
         <div className='player'>
-            {selectedPlayer !== null ? (
+            {selectedPlayer ? (
                 <>
                     <h1 className='player-title'>{selectedPlayer[0].name}</h1>
                     <div className='player-photo'>
-                        <img src={selectedPlayer[0].img} alt='' />
+                        <img src={selectedPlayer[0].img} alt='selectedPlayerImage' />
                     </div>
                     <div className='player-info'>
                         <p>
@@ -49,9 +61,7 @@ const Player = () => {
                         </p>
                     </div>
                 </>
-            ) : (
-                <div>{id}</div>
-            )}
+            ) : null}
         </div>
     );
 };

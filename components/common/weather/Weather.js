@@ -3,7 +3,7 @@ import weather_sunny from "../../../public/imgs/weather-sunny.png";
 import weather_cloud from "../../../public/imgs/weather-cloud.png";
 
 import { useState, useEffect } from "react";
-import { fetchWeatherForecast } from "../../main/mainPageSlice";
+import { fetchWeatherForecast } from "../../pages/main/mainPageSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 

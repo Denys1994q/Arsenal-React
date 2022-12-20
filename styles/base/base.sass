@@ -12,6 +12,9 @@ html
 body
     padding: .5rem
     background-color: white
+    @include respond(big-screen)
+        width: 70%
+        margin: 0 auto
 
 a
     text-decoration: none
@@ -46,10 +49,7 @@ button,input,optgroup,select,textarea
     padding: 1rem
     border: 1px solid white
 
-@media (max-width: 2600px)
-    body
-        width: 70%
-        margin: 0 auto
-@media (max-width: 1560px)
-    body
-        width: 100%
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0

@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-import Squad from "../squad/Squad";
+import Squad from "../pages/squad/Squad";
 
 const Header = () => {
     const { asPath } = useRouter();

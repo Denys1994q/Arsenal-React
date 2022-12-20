@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Accordion from "../components/contact/contact_Accordion/Accordion";
-import ContactForm from "../components/contact/contact_Form/ContactForm";
+import Accordion from "../components/pages/contact/contact_Accordion/Accordion";
+import ContactForm from "../components/pages/contact/contact_Form/ContactForm";
 
 const Contact = () => {
     const [active, setActive] = useState("");

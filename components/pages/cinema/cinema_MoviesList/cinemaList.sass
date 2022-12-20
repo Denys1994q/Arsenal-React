@@ -1,0 +1,22 @@
+.cinemaList
+    margin-bottom: 10rem
+    margin-top: 2rem
+    display: flex
+    flex-wrap: wrap
+    gap: 2rem
+    @include respond(tab-land)
+        margin-top: 4rem
+        justify-content: center
+.movieCard
+    width: 31rem
+    &__img
+    &__textbox
+        margin: .5rem 0rem 1rem 0rem
+        text-align: center
+        background: $blueBlackColor
+        padding: .5rem
+        color: white
+        min-height: 6rem
+    &__title
+        font-weight: 700
+    &__year

@@ -9,7 +9,7 @@ import arsenal_logo from "../public/imgs/logo.svg";
 // import Modal from "../common/modal/Modal";
 import Head from "next/head";
 import Slider from "../components/common/slider/Slider";
-import InfoCard from "../components/main/infoCard/InfoCard";
+import InfoCard from "../components/pages/main/infoCard/InfoCard";
 import Weather from "../components/common/weather/Weather";
 
 const Main = () => {
