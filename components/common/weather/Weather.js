@@ -12,8 +12,8 @@ const Weather = () => {
     const weatherError = useSelector(state => state.mainPageSlice.weatherError);
 
     const month = new Date().toDateString();
-    const temp = weather.main.temp;
-    const typeOfWeather = weather.weather.main;
+    const temp = weather ? weather.main.temp : null;
+    const typeOfWeather = weather ? weather.weather.main : null;
 
     const content = weather ? (
         <>
