@@ -17,7 +17,7 @@ import { weather__getWeatherFromPrerender } from "../components/pages/main/mainP
 
 export const getServerSideProps = wrapper.getServerSideProps(wrapper => async () => {
     const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_API}`
+        `https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=cea91e10193139338f543bcc88a81974`
     );
     const data = await res.json();
     wrapper.dispatch(weather__getWeatherFromPrerender(data));
