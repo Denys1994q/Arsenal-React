@@ -67,7 +67,7 @@ const Search = () => {
                     className={loading ? "fa fa-spinner fa-spin cinemaSearch__logo" : "cinemaSearch__logo"}
                     onClick={() => getMovies()}></FontAwesomeIcon>
                 {!movies ? <div className='cinemaSearch__status'>movie not found</div> : ""}
-                {movies.length > 0 ? (
+                {movies && movies.length > 0 ? (
                     <button className='btn cinemaSearch__btnNewFirst' onClick={e => sortMovies(e)}>
                         New movies first
                     </button>

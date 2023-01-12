@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { HYDRATE } from "next-redux-wrapper";
 
 import { useHttp } from "../../../hooks/http.hook";
 
@@ -27,6 +28,9 @@ const cinemaSlice = createSlice({
                 return a.Year - b.Year;
             });
         },
+        cinema__getMoviesFromPrerender: (state, action) => {
+            state.movies = action.payload;
+        },
     },
     extraReducers: builder => {
         builder
@@ -35,6 +39,9 @@ const cinemaSlice = createSlice({
                 state.moviesError = false;
             })
             .addCase(fetchMovies.fulfilled, (state, action) => {
+                if (action.payload.Response === "False") {
+                    state.movies = [];
+                }
                 state.movies = action.payload.Search;
                 state.moviesLoading = false;
                 state.moviesError = false;
@@ -42,6 +49,12 @@ const cinemaSlice = createSlice({
             .addCase(fetchMovies.rejected, state => {
                 state.moviesError = true;
                 state.moviesLoading = false;
+            })
+            .addCase(HYDRATE, (state, action) => {
+                return (state = {
+                    ...state,
+                    ...action.payload.cinemaSlice,
+                });
             })
             .addDefaultCase(() => {});
     },
@@ -51,4 +64,4 @@ const { actions, reducer } = cinemaSlice;
 
 export default reducer;
 
-export const { cinema__sortMoviesFromNew, cinema__sortMoviesFromOld } = actions;
+export const { cinema__sortMoviesFromNew, cinema__sortMoviesFromOld, cinema__getMoviesFromPrerender } = actions;

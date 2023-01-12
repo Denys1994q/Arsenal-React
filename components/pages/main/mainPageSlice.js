@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import { useHttp } from "../../../hooks/http.hook";
 
+import { HYDRATE } from "next-redux-wrapper";
+
 const initialState = {
     weather: {},
     weatherLoading: false,
@@ -22,7 +24,11 @@ export const fetchWeatherForecast = createAsyncThunk("mainPage/fetchWeatherForec
 const mainPageSlice = createSlice({
     name: "mainPage",
     initialState,
-    reducers: {},
+    reducers: {
+        weather__getWeatherFromPrerender: (state, action) => {
+            state.weather = action.payload;
+        },
+    },
     extraReducers: builder => {
         builder
             .addCase(fetchWeatherForecast.pending, state => {
@@ -38,6 +44,12 @@ const mainPageSlice = createSlice({
                 state.weatherError = true;
                 state.weatherLoading = false;
             })
+            .addCase(HYDRATE, (state, action) => {
+                return (state = {
+                    ...state,
+                    ...action.payload.mainPageSlice,
+                });
+            })
             .addDefaultCase(() => {});
     },
 });
@@ -46,4 +58,4 @@ const { actions, reducer } = mainPageSlice;
 
 export default reducer;
 
-export const {} = actions;
+export const { weather__getWeatherFromPrerender } = actions;

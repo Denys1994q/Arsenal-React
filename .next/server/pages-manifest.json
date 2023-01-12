@@ -2,5 +2,11 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/contacts": "pages/contacts.html",
+  "/shop": "pages/shop.html",
+  "/squad/[id]": "pages/squad/[id].html",
+  "/team": "pages/team.html",
+  "/": "pages/index.js",
+  "/cinema": "pages/cinema.js",
+  "/404": "pages/404.html"
 }
