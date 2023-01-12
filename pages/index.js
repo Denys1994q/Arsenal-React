@@ -15,6 +15,7 @@ import { wrapper } from "../store/store";
 
 import { weather__getWeatherFromPrerender } from "../components/pages/main/mainPageSlice";
 
+// а мені взагалі потрібна гідратація при getServerSideProps?
 export const getServerSideProps = wrapper.getServerSideProps(wrapper => async () => {
     const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=cea91e10193139338f543bcc88a81974`

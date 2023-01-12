@@ -5,7 +5,7 @@ import { useHttp } from "../../../hooks/http.hook";
 import { HYDRATE } from "next-redux-wrapper";
 
 const initialState = {
-    weather: {},
+    weather: null,
     weatherLoading: false,
     weatherError: false,
 };
