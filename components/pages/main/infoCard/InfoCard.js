@@ -7,7 +7,7 @@ const InfoCard = ({ homeTeam, awayTeam, dateOfTheMatch }) => {
         <div className='infoCard'>
             <div className='infoCard__wrapper'>
                 <div className='infoCard__dateAndStadium'>
-                    <div className='infoCard__date'>Feb 26 - 15:00</div>
+                    <div className='infoCard__date'>Mar 26 - 15:00</div>
                     <div className='infoCard__stadium'>Emirates Stadium</div>
                 </div>
                 <div className='infoCard__league'>Premier League</div>
