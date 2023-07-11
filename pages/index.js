@@ -34,7 +34,7 @@ const Main = () => {
             </Head>
             <Slider imgs={slideImages} />
             <div className='main__right'>
-                <InfoCard homeTeam={arsenal_logo} awayTeam={leicester_logo} dateOfTheMatch='2023-03-26T15:00:00' />
+                <InfoCard homeTeam={arsenal_logo} awayTeam={leicester_logo} dateOfTheMatch='2023-09-26T15:00:00' />
                 <Weather />
             </div>
         </div>
